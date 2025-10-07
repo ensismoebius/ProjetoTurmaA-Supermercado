@@ -1,5 +1,7 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
 AyaMax1438 - ayannammaximiano@gmail.com  
+GabrielLSilva3755 - Gabriel Lima da Silva  
+kaiquekmt-pixel - kaique manhani tomaz  
 evelyyn-vic - Evelyn Victor Dos Santos  
 hugoinho - Hugo Santiago dos Santos  
 iansv39443913-Ian Gustavo Silva Vento  
