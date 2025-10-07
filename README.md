@@ -1,4 +1,6 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
+
+eve-idk - Evelyn de Almeida França Ferraz  
 AyaMax1438 - ayannammaximiano@gmail.com  
 laiscalafange - Laís Calafange Barbosa  
 GabrielLSilva3755 - Gabriel Lima da Silva  
