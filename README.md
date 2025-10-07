@@ -1,3 +1,8 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
 
 evelyyn-vic - Evelyn Victor Dos Santos
+hugoinho - Hugo Santiago dos Santos 
+iansv39443913-Ian Gustavo Silva Vento
+grazielly01 - Grazielly oliveira araújo 
+gabrielnottari - Gabriel Nottari Kuperchmit  
+Kirrp - Gustavo Gonçalves Da Silva  
