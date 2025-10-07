@@ -1,5 +1,6 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
 GabrielRLac - Gabriel da Rocha de Lacerda  
+Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
 @harmonyoblue - Guilherme Costa Vale  
 eve-idk - Evelyn de Almeida França Ferraz  
