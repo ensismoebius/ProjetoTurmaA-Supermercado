@@ -1,4 +1,5 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
+AyaMax1438 - ayannammaximiano@gmail.com  
 laiscalafange - Laís Calafange Barbosa  
 GabrielLSilva3755 - Gabriel Lima da Silva  
 kaiquekmt-pixel - kaique manhani tomaz  
