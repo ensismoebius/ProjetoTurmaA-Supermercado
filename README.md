@@ -1,5 +1,5 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
-
+laiscalafange - Laís Calafange Barbosa  
 GabrielLSilva3755 - Gabriel Lima da Silva  
 kaiquekmt-pixel - kaique manhani tomaz  
 evelyyn-vic - Evelyn Victor Dos Santos  
