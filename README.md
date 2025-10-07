@@ -1,2 +1,3 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
-Kirrp-Gustavo Gonçalves Da Silva
+gabrielnottari - Gabriel Nottari Kuperchmit  
+Kirrp - Gustavo Gonçalves Da Silva  
