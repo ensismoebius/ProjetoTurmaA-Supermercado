@@ -1,1 +1,1 @@
-# ProjetoTurmaA-Supermercado
+# Projeto Turma A - Etec Jaraguá - Supermercado
