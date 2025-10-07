@@ -1,6 +1,7 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
-
-@harmonyoblue - Guilherme Costa Vale
+Linswe - Lincoln Martins Lima Luz  
+Kirrp - Gustavo Gonçalves Da Silva  
+@harmonyoblue - Guilherme Costa Vale  
 eve-idk - Evelyn de Almeida França Ferraz  
 AyaMax1438 - ayannammaximiano@gmail.com  
 laiscalafange - Laís Calafange Barbosa  
