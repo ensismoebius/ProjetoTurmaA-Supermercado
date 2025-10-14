@@ -1,0 +1,15 @@
+{
+    "name": "grupoa/supermercado",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.9",
+        "coffeecode/router": "^1.0.8"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Grupoa\\Supermercado\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
