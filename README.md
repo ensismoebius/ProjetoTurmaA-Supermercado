@@ -1,4 +1,5 @@
 # Projeto Turma A - Etec Jaraguá - Supermercado
+AquilesVinicius - Aquiles Vinicius Do Nascimento Araujo  
 Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
 @harmonyoblue - Guilherme Costa Vale  
