@@ -1,4 +1,4 @@
-# Projeto Turma A - Etec Jaraguá - Supermercado
+# Sid'Smart - Etec Jaraguá - Supermercado
 Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
 @harmonyoblue - Guilherme Costa Vale  
