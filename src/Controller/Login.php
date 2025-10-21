@@ -65,19 +65,16 @@ class Login {
      */
     public function salvarLogin(array $dados)
     {
-        //
+        
     }
+
 
     public function logout(array $dados)
     {
-        // Inicia a sessão
         session_start();
-
-        // Remove o usuário da sessão
-        // unset no php é pra apagar um variavel 
+ 
         unset($_SESSION["usuario"]);
 
-        // Redireciona para a página principal
         header("Location: /");
         exit;
     }
