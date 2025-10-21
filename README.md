@@ -1,4 +1,5 @@
-# Projeto Turma A - Etec Jaraguá - Supermercado
+# Sid'Smart - Etec Jaraguá - Supermercado
+
 GabrielRLac - Gabriel da Rocha de Lacerda  
 Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
