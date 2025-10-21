@@ -31,7 +31,7 @@ class Login {
     function autenticar(array $dados)
 {
     $email = trim($dados["email"]);
-    $senha = $dados["senha"];
+    $senha = $dados["password"];
 
     $avisos = "";
 
