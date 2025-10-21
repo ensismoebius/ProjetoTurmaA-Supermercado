@@ -1,5 +1,6 @@
 # Sid'Smart - Etec Jaraguá - Supermercado
 
+AquilesVinicius - Aquiles Vinicius Do Nascimento Araujo  
 GabrielRLac - Gabriel da Rocha de Lacerda  
 Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
