@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="../Css/carrinho.css">
+</head>
+<body> 
+    
+
+    <h1>Carrinho de compras</h1>
+
+    <!-- produtos, fala oque e cada campo-->
+    <div class="campos">
+     <h3>Produtos</h3>
+     <h3>Preço</h3>
+     <h3>Quantidade</h3>
+     <h3>Ação</h3> <!--excluir do carrinho ou ver itens similares-->
+    </div>
+
+    <form action="Produtos">
+
+        {% for produto in unico %}
+        <div class="Carrinho">
+
+          <label for="Pcheck">Selecione o produto:</label><br>
+          <input type="checkbox" name="proCheck" id="Pcheck">
+         <img src="{{ produto.foto1 }}">
+          <p>Nome: {{ produto.Nome }}</p>
+          <p>Valor: {{ produto.valor }}</p>
+          <label for="qtdeProduto">Quantidade:</label>
+          <input type="number" min="1" value="1" id="qtdeProduto">
+
+        </div>
+        {% endfor %}
+
+     <!--ação-->
+     <br>
+     <button>Tirar do carrinho</button>
+     <button>Ver itens semelhantes</button>
+     <br>
+
+    </form>
+
+<br><br>
+    {% for produto in unico %}
+        <div class="CarrinhoFinal">
+            <h2>Resumo do Pedido</h2>
+
+            <label for="Tcheck">Selecione tudo:</label>
+            <input type="checkbox" name="tudoCheck" id="Tcheck"><br>
+            <!--selecionar todos os produtos e somar todos no carrinho(precisa programar)-->
+            <p>Quantidade: {{Carrinho.Itens}} </p><br> <!--todos os itens que estão no carrinho-->
+            <p>Total:{{ Carrinho.total }}R$ </p> <!--talvez uma variavel com a soma dos valores-->
+
+        </div>
+
+    {% endfor %} <br>
+
+    <button>Finalizar Compra</button>
+<br>
+
+&copy Sid's-Mart 2025    
+</body>
+</html>
