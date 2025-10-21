@@ -1,4 +1,7 @@
 # Sid'Smart - Etec Jaraguá - Supermercado
+
+AquilesVinicius - Aquiles Vinicius Do Nascimento Araujo  
+GabrielRLac - Gabriel da Rocha de Lacerda  
 Linswe - Lincoln Martins Lima Luz  
 Kirrp - Gustavo Gonçalves Da Silva  
 @harmonyoblue - Guilherme Costa Vale  
@@ -15,5 +18,6 @@ Giovs._.0w7 - Giovana Bandeira Vieira
 hugoinho - Hugo Santiago dos Santos  
 iansv39443913-Ian Gustavo Silva Vento  
 grazielly01 - Grazielly oliveira araújo  
+batatinha_gay - Carolina Rodrigues Pereira de Castro
 gabrielnottari - Gabriel Nottari Kuperchmit  
 Kirrp - Gustavo Gonçalves Da Silva  
