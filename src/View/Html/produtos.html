@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Produtos — Supermercado</title>
+  <link rel="stylesheet" href="../Css/produtos.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="cabeca">
+      <div>
+        <h1>Produtos</h1>
+        <p>Encontre produtos, veja preços e adicione ao carrinho.</p>
+      </div>
+      <div class="barra-ferramentas" role="region" aria-label="Ferramentas de listagem">
+        <div class="procurar" role="search">
+          <input id="pesquisa" type="search" placeholder="Pesquisar produtos" aria-label="Pesquisar produtos" />
+        </div>
+        <select class="select" aria-label="Ordenar">
+            <option value="popular">Mais populares</option>
+            <option value="preco-asc">Preço: menor</option>
+            <option value="preco-desc">Preço: maior</option>
+        </select>
+
+        <button class="btn primary" title="Novo produto">Novo</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="produtosGrid" class="produtos-grid" aria-label="Lista de produtos">
+        <!-- cards serão inseridos pelo JS -->
+      </section>
+
+      <div style="margin-top:18px;">
+        <div id="mensagem-vazia" class="mensagem-vazia" aria-live="polite" hidden>
+          Nenhum produto encontrado — ajuste filtros ou pesquise novamente.
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
