@@ -77,6 +77,10 @@ class Login
  
         unset($_SESSION["usuario"]);
 
+        // destrói a sessão
+        session_destroy();
+
+        // vai redirecionar para página principal
         header("Location: /");
         exit;
     }
