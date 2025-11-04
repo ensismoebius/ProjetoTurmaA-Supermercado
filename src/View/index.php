@@ -13,3 +13,5 @@ $roteador->namespace("GrupoA\Supermercado\Controller");
 
 
 $roteador->get('/logout', "Login:logout");
+
+$roteador->dispatch();
