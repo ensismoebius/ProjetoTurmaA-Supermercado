@@ -101,6 +101,39 @@
                 </div>
             </form>
         </main>
-        <!-- Resumo do pedido -->
+        <aside class="resumo-pedido" aria-label="Resumo do pedido">
+            <div>
+                <h3 style="margin:0 0 8px;">Resumo do pedido</h3>
+                <p style="margin:0;color:var(--muted);font-size:0.95rem;">Verifique itens, quantidades e valores antes de confirmar.</p>
+            </div>
+
+            <div class="items" role="list" aria-live="polite">
+                <!-- Substituir pelo loop de itens -->
+                <div class="item" role="listitem">
+                    <div class="item-info">
+                        <div style="font-weight:600;">Nome do produto A</div>
+                        <div style="color:var(--muted);font-size:0.9rem;">Descrição curta ou variante</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div class="item-qty">x2</div>
+                        <div style="font-weight:600;margin-top:6px;">R$ 39,90</div>
+                    </div>
+                </div>
+
+                <!-- Gerar os itens do carrinho dinamicamente aqui -->
+            </div>
+
+            <div class="totals">
+                <div class="line"><span>Subtotal</span><span>R$ 79,80</span></div>
+                <div class="line"><span>Frete</span><span>R$ 12,00</span></div>
+                <div class="line"><span>Desconto</span><span>- R$ 0,00</span></div>
+                <div class="line total"><span>Total</span><span>R$ 91,80</span></div>
+            </div>
+
+            <div style="display:flex; justify-content:center; margin-top:6px;">
+                <button type="button" class="primary" onclick="document.querySelector('.checkout-form').requestSubmit()">Pagar R$ 91,80</button>
+            </div>
+        </aside>
+    </div>
 </body>
 </html>
