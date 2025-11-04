@@ -64,7 +64,41 @@
                         </div>
                     </div>
                 </fieldset>
-                <!--Forma de pagamento-->
+                
+                <fieldset style="border:none;padding:0;margin:0;">
+                    <legend style="font-weight:600;margin:12px 0 6px;">Pagamento</legend>
+                    <div>
+                        <label for="metodo">Método</label>
+                        <select id="metodo name="metodo required>
+                            <option value="">Selecione</option>
+                            <option value="cartao">Cartão de crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </div>
+
+                    <div id="campos-cartao" style="display:block;">
+                        <div class="row" style="margin-top:6px;">
+                            <div>
+                                <label for="numero-cartao">Número do cartão</label>
+                                <input id="numero-cartao" name="numero-cartao" type="number" maxlength="19" />
+                            </div>
+                            <div>
+                                <label for="validade">Validade (MM/AA)</label>
+                                <input id="validade" name="validade" type="number" maxlength="5" placeholder="MM/AA" />
+                            </div>
+                        </div>
+                        <div style="margin-top:8px;">
+                            <label for="cvv">CVV</label>
+                            <input id="cvv" name="cvv" type="number" maxlength="4" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="actions" style="margin-top:12px;">
+                    <button type="submit" class="primary">Confirmar e pagar</button>
+                    <button type="button" class="secondary" onclick="window.history.back()">Voltar ao carrinho</button>
+                </div>
             </form>
         </main>
         <!-- Resumo do pedido -->
