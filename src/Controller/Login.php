@@ -4,59 +4,61 @@ namespace GrupoA\Supermercado\Controller;
 use GrupoA\Supermercado\Database;
 use GrupoA\Supermercado\User;
 
-class Login {
+class Login
+{
 
     // bla bla bla
 
-    public function __construct() {
+    public function __construct()
+    {
         session_start();
 
-        
+
     }
 
-        /**
+    /**
      * Exibe o formulário de login
      * @param array $dados
      * @return void
      */
-  
-     //colocar rotas
+
+    //colocar rotas
 
     /**
      * Autentica o usuário
      * @param array $dados
      * @return void
      */
-    
+
     function autenticar(array $dados)
-{
-    $email = trim($dados["email"]);
-    $senha = $dados["password"];
+    {
+        $email = trim($dados["email"]);
+        $senha = $dados["senha"];
 
-    $avisos = "";
+        $avisos = "";
 
-    if ($email == "" || $senha == "") {
-        $avisos .= "Preencha todos os campos.";
-    } else {
-        $bd = new Database();
-        $usuario = $bd->loadUserByEmail($email);
-
-        if ($usuario && password_verify($senha, $usuario["senha"])) {
-            $_SESSION["usuario"] = $usuario;
-            header("Location: /");
-            exit;
+        if ($email == "" || $senha == "") {
+            $avisos .= "Preencha todos os campos.";
         } else {
-            $avisos .= "Email ou senha inválidos.";
+            $bd = new Database();
+            $usuario = $bd->loadUserByEmail($email);
+
+            if ($usuario && password_verify($senha, $usuario["senha"])) {
+                $_SESSION["usuario"] = $usuario;
+                header("Location: /");
+                exit;
+            } else {
+                $avisos .= "Email ou senha inválidos.";
+            }
         }
+
+        $dados["avisos"] = $avisos;
+        // mudar conforme criarem o html
+        echo $this->ambiente->render("formularioLogin.html", $dados);
     }
 
-    $dados["avisos"] = $avisos;
-    // mudar conforme criarem o html
-    echo $this->ambiente->render("formularioLogin.html", $dados);
-}
 
-
-//colocar rotas
+    //colocar rotas
 
     /**
      * Salva um novo login

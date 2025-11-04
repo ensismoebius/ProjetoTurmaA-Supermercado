@@ -8,7 +8,7 @@
     "license": "proprietary",
     "autoload": {
         "psr-4": {
-            "Grupoa\\Supermercado\\": "src/"
+            "GrupoA\\Supermercado\\": "src/"
         }
     },
     "minimum-stability": "dev"
