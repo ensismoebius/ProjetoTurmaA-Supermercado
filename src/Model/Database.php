@@ -19,5 +19,27 @@ class Database
 
         return $usuario ?: null;
     }
+    // bla bla bla
 
+    public function atualizaProduto(Produto $produto): bool
+    {
+        $sql = "UPDATE produtos 
+                SET nome = :nome, 
+                    valor = :valor, 
+                    categoria = :categoria, 
+                    descricao = :descricao, 
+                    quantidade = :quantidade
+                WHERE id = :id";
+
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":nome", $produto->nome);
+        $stmt->bindValue(":valor", $produto->valor);
+        $stmt->bindValue(":categoria", $produto->categoria);
+        $stmt->bindValue(":descricao", $produto->descricao);
+        $stmt->bindValue(":quantidade", $produto->quantidade);
+        $stmt->bindValue(":id", $produto->id);
+
+        return $stmt->execute();
+    }
 }
