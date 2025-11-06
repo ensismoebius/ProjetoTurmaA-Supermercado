@@ -33,6 +33,23 @@ class Admin
     }
 
     /**
+     * listar do produto
+     * @param array $dados
+     * @return void
+     */
+
+    public function listarProdutos(): void
+{
+    $bd = new Database();
+    $produtos = $bd->buscarProdutos(); 
+
+    echo $this->ambiente->render("ListarProdutos.html", [
+        "produtos" => $produtos
+    ]);
+}
+
+
+    /**
      * Processa atualização do produto
      * @param array $dados
      * @return void
