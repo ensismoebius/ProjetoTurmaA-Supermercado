@@ -42,4 +42,20 @@ class Database
 
         return $stmt->execute();
     }
+
+    public function buscarProdutoPorId($id)
+{
+    $sql = "SELECT * FROM produtos WHERE id = :id";
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+
+    $produto = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+    return $produto ? $produto : false;
 }
+
+
+}
+
+

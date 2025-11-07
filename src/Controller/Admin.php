@@ -23,14 +23,30 @@ class Admin
     }
 
     /**
-     * Exibe o formulário para atualizar produto
+     * Exibe o formulário para atualizar produto pelo id
      * @param array $dados
      * @return void
      */
+
     public function formularioEditarProduto(array $dados)
-    {
-        echo $this->ambiente->render("AtualizarProduto.html", $dados);
+{
+    $id = intval($dados["id"] ?? 0);
+    $bd = new Database();
+    $produto = $bd->buscarProdutoPorId($id);
+
+    if (!$produto) {
+        echo $this->ambiente->render("AtualizarProduto.html", 
+        [
+            "avisos" => "Produto não encontrado."
+        ]);
+        return;
     }
+// nao tem o html ainda
+    echo $this->ambiente->render("AtualizarProduto.html", [
+        "produto" => $produto
+    ]);
+}
+
 
     /**
      * listar do produto
