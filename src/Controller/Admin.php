@@ -44,4 +44,36 @@ public function formularioNovoProduto(array $dados)
      * @param array $dados
      * @return void
      */
+     public function salvaProduto(array $dados)
+    {
+        $nome = trim($dados["nome"]);
+        $descricao = trim($dados["descricao"]);
+        $valor = $dados["valor"];
+        $categoria = trim($dados["categoria"]);
+        $fornecedor = trim($dados["fornecedor"]);
+
+        $avisos = "";
+
+        if ($nome != "" && $valor > 0 && $categoria != "" && $fornecedor != "") {
+            $produto = new Produto();
+            $produto->prdTitulo = $nome;
+            $produto->prdVlrUnit = $valor;
+            $produto->prdDescr = $descricao;
+            $produto->prdCateg = $categoria;
+            $produto->prdFor = $fornecedor;
+
+            $bd = new Database();
+            if ($bd->saveProduto($produto)) {
+                // Avisa que deu certo
+                $avisos .= "Produto cadastrado com sucesso.";
+            } else {
+                // Avisa que deu errado
+                $avisos .= "Erro ao cadastrar produto.";
+            }
+        }
+
+        $dados["avisos"] = $avisos;
+        echo $this->ambiente->render("formularioNovoProduto.html", $dados);
+    }
+
 }

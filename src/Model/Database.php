@@ -20,4 +20,16 @@ class Database
         return $usuario ?: null;
     }
 
+    function saveProduto(Produto $produto): bool
+    {
+        $stmt = $this->conexao->prepare("INSERT INTO Produto (prdTitulo, prdDescr, prdVlrUnit, prdCateg, prdFor) VALUES (:titulo, :descricao, :valor, :categoria, :fornecedor)");
+
+        $stmt->bindValue(":titulo", $produto->prdTitulo);
+        $stmt->bindValue(":descricao", $produto->prdDescr);
+        $stmt->bindValue(":valor", $produto->valor);
+        $stmt->bindValue(":categoria", $produto->prdCateg);
+        $stmt->bindValue(":fornecedor", $produto->prdFor);
+
+        return $stmt->execute();
+    }
 }
