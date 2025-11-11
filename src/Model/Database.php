@@ -20,4 +20,12 @@ class Database
         return $usuario ?: null;
     }
 
+    public function buscarProdutos(): array
+{
+    $stmt = $this->conexao->prepare("SELECT * FROM produtos");
+    $stmt->execute();
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+}
+
+
 }
