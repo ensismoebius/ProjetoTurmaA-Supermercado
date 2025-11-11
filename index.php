@@ -16,7 +16,11 @@ $roteador->get("/", "Principal:paginaPrincipal");
 // === Área de login ===
 $roteador->group("login");
 
-// === Tarefas administrativas ===
+// === Área administrativa ===
 $roteador->group("admin");
+$roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
+
+$roteador->post("/produto/editar", "Admin:editarProduto");
+
 
 $roteador->dispatch();
