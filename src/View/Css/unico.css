@@ -1,91 +1,261 @@
-/* ===== ESTILO GERAL ===== */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #E6EBE3;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-    text-align: center;
-    background-color: #a600ff;
-    color: white;
-    padding: 20px;
-    margin: 0;
+/*Barra de Pesquisa com as informações*/
+.TopoInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #87B46B;
+  padding: 10px 25px;
+  border: 2px solid #DBB44D;
 }
 
-/* ===== PRODUTO ===== */
+.pesquisar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 30px;
+  padding: 6px 12px;
+  width: 500px;
+  box-shadow: 0 4px 5px 3px #60824c;
+  position: relative;
+}
+
+.txtPesquisar {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 30px;
+  background: none;
+}
+
+.lupa {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  gap: 12px;
+}
+
+.BtnMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+  padding: 8px 85px 8px 15px;
+  background-position: 8px center;
+  background-size: 20px;
+  border-radius: 30px;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+  border: 1px solid #FFB800;
+}
+
+.BtnMenu .icon {
+  position: absolute;
+  right: 10px;
+  top: 8%;
+  transform: translateY(-50%);
+  transform: translateX(3%);
+}
+
+.BtnMenu .icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.BtnMenu.P {
+  background: #2B5540;
+}
+
+.BtnMenu.F {
+  background: #568A35;
+
+}
+
+.BtnMenu.E {
+  background: #568A35;
+}
+
+.BtnMenu.C {
+  background: #568A35;
+}
+
+.BtnMenu:hover {
+  background: #FFB800;
+  transform: scale(1.05);
+}
+
+/*Seta da Paginação*/
+
+.Setinha {
+  display: flex;
+  margin: 20px 20px 0;
+}
+
+.SetaPag {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  transform-origin: center center;
+}
+
+.SetaPag:hover {
+  transform: scale(1.3);
+  z-index: 10;
+}
+
+/*Produto único*/
+
+.Corpo {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+/*imagem do produto*/
+.fotoProduto {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fotoProduto img {
+  width: 280px;
+  height: 320px;
+  border-radius: 20px;
+  border: 3px solid #DDEECC;
+}
+
 .ProdutoUni {
-    max-width: 800px;
-    background-color: #fff;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+  background: #F8F8F8;
+  border-radius: 18px;
+  box-shadow: 0px 5px 10px #1C943E;
+  padding: 20px;
+  width: 670px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.ProdutoUni img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+/*nome, preço e frete*/
+.Nm {
+  color: #2B5540;
+  font-weight: bold;
+  font-size: 28px;
 }
 
-.ProdutoUni p {
-    font-size: 18px;
-    margin: 8px 0;
+.Prc {
+  color: #FF5900;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-/* ===== BOTÕES ===== */
-button {
-    background-color: #ae00ff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
+.Frt {
+  color: #EF7331;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.info-preco {
+  align-self: flex-start;
+}
+
+.acao-compra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+/*Quantidade do produto*/
+.quantidade {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #d0dac6;
+  border-radius: 30px;
+  padding: 4px;
+}
+
+.quantidade button {
+  background: #ACD162;
+  border: none;
+  color: white;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.quantidade button:hover {
+  background: #8CBF52;
+}
+
+.quantidade .QTDE {
+  pointer-events: none;
+  user-select: none;
+  width: 40px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  background: none;
+  color: #333;
+}
+
+/* Botão comprar */
+.Comprar {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ACD162;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #7400b3;
+  background-color: #69a146;
+  transform: scale(1.05);
 }
 
-/* ===== DETALHES DO PRODUTO ===== */
+/* Caixa da descrição do produto */
 .InfoProduto {
-    max-width: 800px;
-    background-color: #ffffff;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-
-.InfoProduto p {
-    margin: 10px 0;
-    line-height: 1.5;
-    font-size: 17px;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 600px) {
-    .ProdutoUni, .InfoProduto {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .ProdutoUni img {
-        width: 100%;
-        height: auto;
-    }
-
-    button {
-        width: 80%;
-        font-size: 15px;
-    }
+  width: 75%;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #E0EED7;
+  color: #2B5540;
+  border-radius: 20px;
+  box-shadow: 0 4px 5px 3px #60824c
 }

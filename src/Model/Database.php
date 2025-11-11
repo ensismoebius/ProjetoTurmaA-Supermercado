@@ -44,18 +44,21 @@ class Database
     }
 
     public function buscarProdutoPorId($id)
-{
-    $sql = "SELECT * FROM produtos WHERE id = :id";
-    $stmt = $this->conexao->prepare($sql);
-    $stmt->bindValue(":id", $id);
-    $stmt->execute();
+    {
+        $sql = "SELECT * FROM produtos WHERE id = :id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
 
-    $produto = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $produto = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-    return $produto ? $produto : false;
+        return $produto ? $produto : false;
+    }
+
+    public function buscarProdutos(): array
+    {
+        $stmt = $this->conexao->prepare("SELECT * FROM produtos");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
-
-
-}
-
-
