@@ -12,6 +12,7 @@ $roteador->namespace("GrupoA\Supermercado\Controller");
 // === Área pública ===
 $roteador->group(null);
 $roteador->get("/", "Principal:paginaPrincipal");
+$roteador->get("/checkout", "Checkout:paginaCheckout");
 
 // === Área de login ===
 $roteador->group("login");
