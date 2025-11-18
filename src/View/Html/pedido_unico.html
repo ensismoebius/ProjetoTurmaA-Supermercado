@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido único</title>
+    <link rel="stylesheet" href="/public/css/unico.css">
+</head>
+
+<body>
+
+    <!--Pesquisa e menu-->
+    <div class="TopoInfo">
+
+        <div class="pesquisar">
+            <input type="text" class="txtPesquisar">
+            <span class="lupa"><img src="/public/img/lupa.png"></span>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="BtnMenu P">Perfil
+                <span class="icon"><img src="/public/img/Usuario.png"></span> </a>
+
+            <a href="#" class="BtnMenu F">Favoritos
+                <span class="icon"><img src="/public/img/Favoritos.png"></span> </a>
+
+            <a href="#" class="BtnMenu E">Entrega
+                <span class="icon"><img src="/public/img/Entrega.png"></span> </a>
+
+            <a href="#" class="BtnMenu C">Carrinho
+                <span class="icon"><img src="/public/img/Carrinho.png"></span> </a>
+        </nav>
+    </div>
+
+    <!--Seta da navegação-->
+    <div class="Setinha">
+        <a href="#">
+            <img src="/public/img/Seta.png" class="SetaPag"></a>
+    </div>
+
+    <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
+    <!--pegar o nome, imagem, preço e frete do produto no php-->
+
+    <div class="Corpo">
+
+        <!--foto do produto-->
+        <div class="fotoProduto">
+            <img src="{{ produto.foto }}">
+        </div>
+
+        <!--Sobre a compra-->
+        <div class="ProdutoUni">
+
+            <p class="Nm">Nome: {{ produto.nome }}</p>
+            <div class="info-preco">
+                <p class="Prc">Preço: {{ produto.preco }}</p>
+                <p class="Frt">Frete: {{ produto.frete }}</p>
+            </div>
+
+            <div class="acao-compra">
+                <div class="quantidade">
+                    <button class="menos">-</button>
+                    <input type="text" min="1" value="1" class="QTDE" readonly>
+                    <button class="mais">+</button>
+                </div>
+
+                <button class="Comprar">Comprar</button>
+            </div>
+            <!-- aqui pode colocar o mesmo produto com variações diferentes. ex:cor -->
+        </div>
+    </div>
+
+    <!--{% endfor %}-->
+
+    <!--Descrição do Produto-->
+    <!--{% for produto in descricao %}-->
+    <div class="InfoProduto">
+        <p>Detalhes: {{ produto.detalhes }}</p> <!--ex:categoria, tipo de envio, etc-->
+        <p>Descrição: {{ produto.descricao }}</p> <!--ex:tamanho, material, qtde, etc-->
+        <p>Validade: {{ produto.validade }}</p>  <!--dependendo do produto não precisa-->
+    </div>
+    <!--{% endfor %}-->
+
+    <!--Possiveis implementações
+    <h3>Avaliações</h3>
+    <h3>Comentários</h3>
+    <h3>produtos semelhantes</h3> -->
+
+
+    &copy Sid's-Mart 2025
+</body>
+
+</html>
