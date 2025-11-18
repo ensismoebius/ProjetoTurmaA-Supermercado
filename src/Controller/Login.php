@@ -4,13 +4,33 @@ namespace GrupoA\Supermercado\Controller;
 use GrupoA\Supermercado\Model\Database;
 use GrupoA\Supermercado\Model\UserRepository;
 
+/**
+ * Classe Login
+ *
+ * Responsável por gerenciar as operações de autenticação e logout de usuários.
+ */
 class Login
 {
-
+    /**
+     * @var \Twig\Environment $ambiente Instância do ambiente Twig para renderização de templates.
+     */
     private \Twig\Environment $ambiente;
+
+    /**
+     * @var \Twig\Loader\FilesystemLoader $carregador Instância do carregador de arquivos Twig.
+     */
     private \Twig\Loader\FilesystemLoader $carregador;
+
+    /**
+     * @var UserRepository $userRepository Repositório de usuários para acesso aos dados.
+     */
     private UserRepository $userRepository;
 
+    /**
+     * Construtor da classe Login.
+     *
+     * Inicializa o ambiente Twig e o repositório de usuários.
+     */
     public function __construct()
     {
         $this->carregador =
@@ -24,9 +44,10 @@ class Login
     }
 
     /**
-     * Autentica o usuário
-     * @param array $dados
-     * @return void
+     * Autentica o usuário com base no e-mail e senha fornecidos.
+     *
+     * @param array $dados Array contendo 'email' e 'senha' do usuário.
+     * @return void Redireciona para a página principal em caso de sucesso, ou exibe avisos.
      */
     function autenticar(array $dados)
     {
@@ -60,16 +81,23 @@ class Login
     //colocar rotas
 
     /**
-     * Salva um novo login
-     * @param array $dados
+     * Salva um novo login (método incompleto).
+     *
+     * @param array $dados Dados para salvar o login.
      * @return void
      */
     public function salvarLogin(array $dados)
     {
-
+        // Este método está incompleto e precisa ser implementado.
     }
 
 
+    /**
+     * Realiza o logout do usuário, destruindo a sessão.
+     *
+     * @param array $dados Dados (não utilizados neste método, mas mantido para consistência de assinatura).
+     * @return void Redireciona para a página principal após o logout.
+     */
     public function logout(array $dados)
     {
         unset($_SESSION["usuario"]);
@@ -83,4 +111,3 @@ class Login
     }
 
 }
-
