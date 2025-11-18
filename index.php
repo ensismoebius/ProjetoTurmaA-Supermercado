@@ -13,6 +13,13 @@
 // Carrega as dependências do Composer (autoload).
 require "vendor/autoload.php";
 
+
+$db = new GrupoA\Supermercado\Model\Database();
+$db->deletarProduto("4");
+
+
+
+
 // Determina o protocolo (HTTP ou HTTPS) da requisição atual.
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 // Obtém o host da requisição (ex: localhost, www.example.com).
