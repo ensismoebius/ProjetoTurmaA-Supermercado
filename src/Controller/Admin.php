@@ -14,7 +14,7 @@ class Admin
     {
         session_start();
         if (!isset($_SESSION["usuario"])) {
-            header("Location: /login");
+            header("Location: /ProjetoTurmaA-Supermercado/login");
             exit;
         }
 

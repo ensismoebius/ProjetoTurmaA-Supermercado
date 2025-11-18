@@ -13,7 +13,16 @@ class Login
     public function __construct()
     {
         session_start();
+
+        $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/html");
+        $this->ambiente = new \Twig\Environment($this->carregador);
     }
+
+    public function formularioLogin(array $dados)
+    {
+        echo $this->ambiente->render("login.html", $dados);
+    }
+
 
     /**
      * Autentica o usuário
@@ -44,7 +53,7 @@ class Login
 
         $dados["avisos"] = $avisos;
         // mudar conforme criarem o html
-        echo $this->ambiente->render("formularioLogin.html", $dados);
+        echo $this->ambiente->render("login.html", $dados);
     }
 
 
