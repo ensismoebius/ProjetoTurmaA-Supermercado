@@ -43,8 +43,14 @@ class Login
     }
     
 
-     /**
-     * exibe o formulário de login
+    public function formularioLogin(array $dados)
+    {
+        echo $this->ambiente->render("login.html", $dados);
+    }
+
+
+    /**
+     * Autentica o usuário
      * @param array $dados
      * @return void
      */
@@ -80,7 +86,7 @@ class Login
         }
 
         $dados["avisos"] = $avisos;
-        
+        // mudar conforme criarem o html
         echo $this->ambiente->render("login.html", $dados);
     }
 

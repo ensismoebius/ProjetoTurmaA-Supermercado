@@ -37,9 +37,10 @@ $roteador->group(null);
 // Rota para a página principal.
 $roteador->get("/", "Principal:paginaPrincipal");
 
+// === Área administrativa ===
 // Grupo de rotas relacionadas ao login.
 $roteador->group("login");
-$roteador->get("/", "Login:paginaLogin");
+$roteador->get("/", "Login:formularioLogin");
 $roteador->post("/autenticar", "Login:autenticar");
 // Exemplo de rota de login (a ser implementada ou expandida).
 // $roteador->get("/entrar", "Login:mostrarFormulario");
