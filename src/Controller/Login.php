@@ -1,18 +1,26 @@
 <?php
 namespace GrupoA\Supermercado\Controller;
 
-use GrupoA\Supermercado\Database;
-use GrupoA\Supermercado\User;
+use GrupoA\Supermercado\Model\Database;
+use GrupoA\Supermercado\Model\UserRepository;
 
 class Login
 {
 
     private \Twig\Environment $ambiente;
     private \Twig\Loader\FilesystemLoader $carregador;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
-        session_start();
+        $this->carregador =
+            new \Twig\Loader\FilesystemLoader("./src/View/Html");
+
+        $this->ambiente =
+            new \Twig\Environment($this->carregador);
+
+        $database = new Database();
+        $this->userRepository = new UserRepository($database);
     }
 
     /**
@@ -22,16 +30,17 @@ class Login
      */
     function autenticar(array $dados)
     {
-        $email = trim($dados["email"]);
-        $senha = $dados["senha"];
+        $email = filter_var(trim($dados["email"]), FILTER_SANITIZE_EMAIL);
+        $senha = htmlspecialchars(trim($dados["senha"]), ENT_QUOTES, 'UTF-8');
 
         $avisos = "";
 
-        if ($email == "" || $senha == "") {
+        if (empty($email) || empty($senha)) {
             $avisos .= "Preencha todos os campos.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $avisos .= "Formato de email inválido.";
         } else {
-            $bd = new Database();
-            $usuario = $bd->loadUserByEmail($email);
+            $usuario = $this->userRepository->findByEmail($email);
 
             if ($usuario && password_verify($senha, $usuario["senha"])) {
                 $_SESSION["usuario"] = $usuario;
@@ -63,8 +72,6 @@ class Login
 
     public function logout(array $dados)
     {
-        session_start();
-
         unset($_SESSION["usuario"]);
 
         // destrói a sessão

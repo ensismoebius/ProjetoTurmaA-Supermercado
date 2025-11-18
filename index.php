@@ -1,7 +1,11 @@
 <?php
 require "vendor/autoload.php";
 
-const URL = "http://localhost/ProjetoTurmaA-Supermercado";
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$basePath = str_replace(basename($scriptName), '', $scriptName);
+const URL = "{$protocol}://{$host}{$basePath}";
 
 // Cria o roteador
 $roteador = new CoffeeCode\Router\Router(URL);
