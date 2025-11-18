@@ -15,6 +15,8 @@ $roteador->get("/", "Principal:paginaPrincipal");
 
 // === Área de login ===
 $roteador->group("login");
+$roteador->get("/", "Login:paginaLogin");
+$roteador->post("/autenticar", "Login:autenticar");
 
 // === Área administrativa ===
 $roteador->group("admin");

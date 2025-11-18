@@ -13,7 +13,18 @@ class Login
     public function __construct()
     {
         session_start();
+
+        $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html"); 
+        $this->ambiente = new \Twig\Environment($this->carregador); 
     }
+    
+
+     /**
+     * exibe o formulário de login
+     * @param array $dados
+     * @return void
+     */
+    public function paginaLogin() { echo $this->ambiente->render("login.html", []); }
 
     /**
      * Autentica o usuário
@@ -22,29 +33,29 @@ class Login
      */
     function autenticar(array $dados)
     {
-        $email = trim($dados["email"]);
+        $nome = trim($dados["nome"]);
         $senha = $dados["senha"];
 
         $avisos = "";
 
-        if ($email == "" || $senha == "") {
+        if ($nome == "" || $senha == "") {
             $avisos .= "Preencha todos os campos.";
         } else {
             $bd = new Database();
-            $usuario = $bd->loadUserByEmail($email);
+            $usuario = $bd->loadUserByName($nome);
 
             if ($usuario && password_verify($senha, $usuario["senha"])) {
                 $_SESSION["usuario"] = $usuario;
                 header("Location: /");
                 exit;
             } else {
-                $avisos .= "Email ou senha inválidos.";
+                $avisos .= "Nome ou senha inválidos.";
             }
         }
 
         $dados["avisos"] = $avisos;
-        // mudar conforme criarem o html
-        echo $this->ambiente->render("formularioLogin.html", $dados);
+        
+        echo $this->ambiente->render("login.html", $dados);
     }
 
 
@@ -57,6 +68,7 @@ class Login
      */
     public function salvarLogin(array $dados)
     {
+        echo $this->ambiente->render("login.html", []);
 
     }
 
@@ -74,6 +86,7 @@ class Login
         header("Location: /");
         exit;
     }
-
 }
+
+
 
