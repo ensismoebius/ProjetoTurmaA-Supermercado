@@ -2,7 +2,7 @@
     "name": "grupoa/supermercado",
     "type": "project",
     "require": {
-        "twig/twig": "^3.9",
+        "twig/twig": "^3.11.x-dev",
         "coffeecode/router": "^1.0.8"
     },
     "license": "proprietary",
