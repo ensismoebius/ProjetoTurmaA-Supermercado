@@ -60,13 +60,14 @@ class Database
 
     function saveProduto(Produto $produto): bool
     {
-        $stmt = $this->conexao->prepare("INSERT INTO Produto (prdTitulo, prdDescr, prdVlrUnit, prdCateg, prdFor) VALUES (:titulo, :descricao, :valor, :categoria, :fornecedor)");
+        $stmt = $this->conexao->prepare("INSERT INTO Produto (prdTitulo, prdDescr, prdVlrUnit, prdCateg, prdFor, prdImagem) VALUES (:titulo, :descricao, :valor, :categoria, :fornecedor, :imagem)");
 
         $stmt->bindValue(":titulo", $produto->prdTitulo);
         $stmt->bindValue(":descricao", $produto->prdDescr);
-        $stmt->bindValue(":valor", $produto->valor);
+        $stmt->bindValue(":valor", $produto->prdVlrUnit);
         $stmt->bindValue(":categoria", $produto->prdCateg);
         $stmt->bindValue(":fornecedor", $produto->prdFor);
+        $stmt->bindValue(":imagem", $produto->prdImagem);
 
         return $stmt->execute();
     }

@@ -9,4 +9,5 @@ class Produto
     public float $prdVlrUnit;
     public string $prdCateg;
     public string $prdFor;
+    public string $prdImagem;
 }
