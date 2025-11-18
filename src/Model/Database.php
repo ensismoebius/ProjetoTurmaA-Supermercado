@@ -57,6 +57,18 @@ class Database
 
         return $usuario ?: null;
     }
+
+    public function loadUserByName(string $nome): ?array
+{
+    $stmt = $this->conexao->prepare("SELECT * FROM usuarios WHERE nome = :nome");
+    $stmt->bindParam(":nome", $nome);
+    $stmt->execute();
+
+    $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+    return $usuario ?: null;
+}
+
     // bla bla bla
 
     /**

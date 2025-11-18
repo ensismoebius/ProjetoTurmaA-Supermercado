@@ -39,6 +39,8 @@ $roteador->get("/", "Principal:paginaPrincipal");
 
 // Grupo de rotas relacionadas ao login.
 $roteador->group("login");
+$roteador->get("/", "Login:paginaLogin");
+$roteador->post("/autenticar", "Login:autenticar");
 // Exemplo de rota de login (a ser implementada ou expandida).
 // $roteador->get("/entrar", "Login:mostrarFormulario");
 // $roteador->post("/autenticar", "Login:autenticar");
