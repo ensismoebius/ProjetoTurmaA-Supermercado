@@ -32,7 +32,6 @@ class Login
      */
     public function __construct()
     {
-        session_start();
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html");
         $this->ambiente = new \Twig\Environment($this->carregador);
         $this->database = new Database();
@@ -106,7 +105,7 @@ class Login
      */
     public function logout(array $dados)
     {
-        unset($_SESSION["usuario"]);
+        unset($_SESSION['user_id']);
 
         // destrói a sessão
         session_destroy();
