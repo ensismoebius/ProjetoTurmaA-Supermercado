@@ -47,7 +47,7 @@ class Database
         // Acessa a propriedade "conexao" do objeto
         // ($this->conexao) e prepara a instrução SQL
         // para ser executada
-        $stmt = $this->conexao->prepare("INSERT INTO user (nome, email, senha, endereco, cpf) VALUES (:nome, :email, :senha, :endereco, :cpf)");
+        $stmt = $this->conexao->prepare("INSERT INTO usuarios (nome, email, senha, endereco, cpf) VALUES (:nome, :email, :senha, :endereco, :cpf)");
 
         // Substitui os "placeholders" pelos seus
         // respectivos valores
@@ -72,9 +72,9 @@ class Database
         $stmt = $this->conexao->prepare("SELECT * FROM usuarios WHERE email = :email");
         $stmt->bindParam(":email", $email);
         $stmt->execute();
-        $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        return $usuario ?: null;
+        return $user ?: null;
     }
 
     public function loadUserByName(string $nome): ?array
@@ -85,7 +85,7 @@ class Database
 
     $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-    return $usuario ?: null;
+    return $user ?: null;
 }
 
     // bla bla bla
