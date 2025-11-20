@@ -58,10 +58,12 @@ class Admin
 
         if (!$produto) {
             // Se o produto não for encontrado, renderiza o formulário com uma mensagem de aviso.
-            echo $this->ambiente->render("AtualizarProduto.html",
+            echo $this->ambiente->render(
+                "AtualizarProduto.html",
                 [
                     "avisos" => "Produto não encontrado."
-                ]);
+                ]
+            );
             return;
         }
         // Renderiza o formulário de atualização de produto com os dados do produto encontrado.

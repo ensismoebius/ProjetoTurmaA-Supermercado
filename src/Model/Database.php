@@ -25,10 +25,10 @@ class Database
         // Configurações do banco de dados, crie 
         // variáveis de ambiente para que a conexão 
         // com o banco de dados seja feita.
-        $dbHost = getenv('DB_HOST') ?: 'localhost';
-        $dbName = getenv('DB_NAME') ?: 'dbSistema';
-        $dbUser = getenv('DB_USER') ?: 'root';
-        $dbPass = getenv('DB_PASS') ?: '';
+        $dbHost = getenv('DB_HOST') ?: '192.168.0.12';
+        $dbName = getenv('DB_NAME') ?: 'PRJ2DSA';
+        $dbUser = getenv('DB_USER') ?: 'Aluno2DS';
+        $dbPass = getenv('DB_PASS') ?: 'SenhaBD2';
 
         try {
             $this->conexao = new \PDO(
@@ -127,5 +127,18 @@ class Database
         $stmt = $this->conexao->prepare("SELECT * FROM produtos");
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function deletarProduto($id): bool{
+     
+        $sql = "DELETE FROM PRODUTOS WHERE PRDCODIGO = :id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+
+        $produto = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        return $produto ? $produto : false;
+
+
     }
 }
