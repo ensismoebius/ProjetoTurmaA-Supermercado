@@ -69,7 +69,7 @@ class Database
     return $usuario ?: null;
 }
 
-    // bla bla bla
+    
 
     /**
      * Atualiza as informações de um produto no banco de dados.
@@ -140,5 +140,20 @@ class Database
         return $produto ? $produto : false;
 
 
+    }
+
+    public function salvarPedido((Pedido $pedido): int) {
+        $sql = "INSERT INTO pedidos (pddCli, pddData, pddTipo, pddVlrTotal, pddForn)
+            VALUES (:cli, :data, :tipo, :total, :forn)";
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":cli", $pedido->pddCli);
+        $stmt->bindValue(":data", $pedido->pddData);
+        $stmt->bindValue(":tipo", $pedido->pddTipo);
+        $stmt->bindValue(":total", $pedido->pddVlrTotal);
+        $stmt->bindValue(":forn", $pedido->pddForn);
+
+        $stmt->execute();
+        return $this->conexao->lastInsertId();
     }
 }
