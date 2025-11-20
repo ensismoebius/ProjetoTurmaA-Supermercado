@@ -44,6 +44,8 @@ $roteador->group(null);
 // Rota para a página principal.
 $roteador->get("/", "Principal:paginaPrincipal");
 $roteador->get("/checkout", "Checkout:paginaCheckout");
+$roteador->post("/finalizarCompra", "Pedido:finalizar");
+
 
 // === Área administrativa ===
 // Grupo de rotas relacionadas ao login.
