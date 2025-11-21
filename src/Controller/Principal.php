@@ -1,11 +1,28 @@
 <?php
 namespace GrupoA\Supermercado\Controller;
 
+/**
+ * Classe Principal
+ *
+ * Responsável por gerenciar a página principal da aplicação.
+ */
 class Principal
 {
+    /**
+     * @var \Twig\Environment $ambiente Instância do ambiente Twig para renderização de templates.
+     */
     private \Twig\Environment $ambiente;
+
+    /**
+     * @var \Twig\Loader\FilesystemLoader $carregador Instância do carregador de arquivos Twig.
+     */
     private \Twig\Loader\FilesystemLoader $carregador;
 
+    /**
+     * Construtor da classe Principal.
+     *
+     * Inicializa o ambiente Twig para carregar os templates HTML.
+     */
     public function __construct()
     {
         // Construtor da classe
@@ -17,7 +34,12 @@ class Principal
             new \Twig\Environment($this->carregador);
     }
 
-
+    /**
+     * Exibe a página principal da aplicação.
+     *
+     * @param array $dados Array de dados a serem passados para o template.
+     * @return void
+     */
     public function paginaPrincipal(array $dados)
     {
         $dados["titulo"] = "Página Principal";
