@@ -51,8 +51,11 @@ class Admin
      * @return void Renderiza o formulário de atualização de produto ou uma mensagem de erro.
      */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public function formularioEditarProduto(array $dados)
 =======
+=======
+>>>>>>> Stashed changes
     
      public function formularioNovoProduto(array $dados)
      {
@@ -125,6 +128,9 @@ class Admin
      
     
      public function formularioEditarProduto(array $dados)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     {
         $id = intval($dados["id"] ?? 0); // Obtém o ID do produto dos dados e garante que seja um inteiro.
