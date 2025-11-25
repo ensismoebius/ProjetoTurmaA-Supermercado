@@ -135,7 +135,8 @@ class Database
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public function deletarProduto($id): bool{
+    public function deletarProduto($id): bool
+    {
      
         $sql = "DELETE FROM PRODUTOS WHERE PRDCODIGO = :id";
         $stmt = $this->conexao->prepare($sql);
@@ -145,6 +146,23 @@ class Database
         $produto = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         return $produto ? $produto : false;
+
+
+    }
+
+    public function salvarPedidoItem(PedidoItem $item): int 
+    {
+        $sql = "INSERT INTO pedido_itens (itnPdd, itnPrd, itnVlr, itnQntd)
+            VALUES (:pdd, :prd, :vlr, :qtd)";
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":pdd", $item->itnPdd);
+        $stmt->bindValue(":prd", $item->itnPrd);
+        $stmt->bindValue(":vlr", $item->itnVlr);
+        $stmt->bindValue(":qtd", $item->itnQntd);
+
+    $stmt->execute();
+    return $this->conexao->lastInsertId();
 
 
     }
