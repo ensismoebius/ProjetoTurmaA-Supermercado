@@ -150,6 +150,8 @@ class Database
 
     }
 
+    
+
     public function salvarPedidoItem(PedidoItem $item): int 
     {
         $sql = "INSERT INTO pedido_itens (itnPdd, itnPrd, itnVlr, itnQntd)
@@ -166,4 +168,21 @@ class Database
 
 
     }
+
+    public function salvarPedido(Pedido $pedido): int
+    {
+        $sql = "INSERT INTO pedidos (pddCli, pddData, pddTipo, pddVlrTotal, pddForn)
+            VALUES (:cli, :data, :tipo, :total, :forn)";
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":cli", $pedido->pddCli);
+        $stmt->bindValue(":data", $pedido->pddData);
+        $stmt->bindValue(":tipo", $pedido->pddTipo);
+        $stmt->bindValue(":total", $pedido->pddVlrTotal);
+        $stmt->bindValue(":forn", $pedido->pddForn);
+
+        $stmt->execute();
+        return $this->conexao->lastInsertId();
+    }
 }
+
