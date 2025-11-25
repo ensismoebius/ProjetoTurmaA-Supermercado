@@ -135,7 +135,8 @@ class Database
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public function deletarProduto($id): bool{
+    public function deletarProduto($id): bool
+    {
      
         $sql = "DELETE FROM PRODUTOS WHERE PRDCODIGO = :id";
         $stmt = $this->conexao->prepare($sql);
@@ -148,4 +149,40 @@ class Database
 
 
     }
+
+    
+
+    public function salvarPedidoItem(PedidoItem $item): int 
+    {
+        $sql = "INSERT INTO pedido_itens (itnPdd, itnPrd, itnVlr, itnQntd)
+            VALUES (:pdd, :prd, :vlr, :qtd)";
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":pdd", $item->itnPdd);
+        $stmt->bindValue(":prd", $item->itnPrd);
+        $stmt->bindValue(":vlr", $item->itnVlr);
+        $stmt->bindValue(":qtd", $item->itnQntd);
+
+    $stmt->execute();
+    return $this->conexao->lastInsertId();
+
+
+    }
+
+    public function salvarPedido(Pedido $pedido): int
+    {
+        $sql = "INSERT INTO pedidos (pddCli, pddData, pddTipo, pddVlrTotal, pddForn)
+            VALUES (:cli, :data, :tipo, :total, :forn)";
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(":cli", $pedido->pddCli);
+        $stmt->bindValue(":data", $pedido->pddData);
+        $stmt->bindValue(":tipo", $pedido->pddTipo);
+        $stmt->bindValue(":total", $pedido->pddVlrTotal);
+        $stmt->bindValue(":forn", $pedido->pddForn);
+
+        $stmt->execute();
+        return $this->conexao->lastInsertId();
+    }
 }
+
