@@ -13,6 +13,7 @@
 // Carrega as dependências do Composer (autoload).
 require "vendor/autoload.php";
 
+session_start();
 
 $db = new GrupoA\Supermercado\Model\Database();
 

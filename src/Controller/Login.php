@@ -106,7 +106,7 @@ class Login
      */
     public function logout(array $dados)
     {
-        unset($_SESSION["usuario"]);
+        unset($_SESSION['user_id']);
 
         // destrói a sessão
         session_destroy();
