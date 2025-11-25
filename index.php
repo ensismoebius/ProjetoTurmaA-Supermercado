@@ -56,11 +56,19 @@ $roteador->post("/autenticar", "Login:autenticar");
 // $roteador->get("/sair", "Login:logout");
 
 // Grupo de rotas administrativas.
+// Grupo de rotas administrativas.
 $roteador->group("admin");
+// Rota para o formulário de produto.
+$roteador->get("/produto/novo", "Admin:formularioNovoProduto");
 // Rota para o formulário de edição de produto.
 $roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
 // Rota para processar a edição de produto.
 $roteador->post("/produto/editar", "Admin:editarProduto");
+
+$roteador->post('/salvaProduto', "Admin:salvaProduto");
+
+
+$roteador->get("/admin/usuarios", "Admin:listaUsuarios");
 
 
 // Despacha a requisição atual para a rota correspondente.
