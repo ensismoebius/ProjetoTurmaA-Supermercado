@@ -62,6 +62,14 @@ $roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
 // Rota para processar a edição de produto.
 $roteador->post("/produto/editar", "Admin:editarProduto");
 
+<<<<<<< Updated upstream
+=======
+$roteador->post('/salvaProduto', "Admin:salvaProduto");
+
+// Rota para acessar a lista de usuários.
+$roteador->get("/admin/usuarios", "Admin:listaUsuarios");
+
+>>>>>>> Stashed changes
 
 // Despacha a requisição atual para a rota correspondente.
 $roteador->dispatch();
