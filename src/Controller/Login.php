@@ -2,6 +2,7 @@
 namespace GrupoA\Supermercado\Controller;
 
 use GrupoA\Supermercado\Model\Database;
+use GrupoA\Supermercado\Model\User;
 use GrupoA\Supermercado\Model\UserRepository;
 
 /**
@@ -22,7 +23,7 @@ class Login
     private \Twig\Loader\FilesystemLoader $carregador;
 
     /**
-     * @var UserRepository $userRepository Repositório de usuários para acesso aos dados.
+     * @var UserRepository
      */
     private UserRepository $userRepository;
 
@@ -33,28 +34,25 @@ class Login
      */
     public function __construct()
     {
-        session_start();
-
-        $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html"); 
-        $this->ambiente = new \Twig\Environment($this->carregador); 
-
-        $database = new Database();
-        $this->userRepository = new UserRepository($database);
+        $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View/Html");
+        $this->ambiente = new \Twig\Environment($this->carregador);
+        $this->userRepository = new UserRepository(Database::getConexao());
     }
-    
 
     public function formularioLogin(array $dados)
     {
         echo $this->ambiente->render("login.html", $dados);
     }
 
-
     /**
      * Autentica o usuário
      * @param array $dados
      * @return void
      */
-    public function paginaLogin() { echo $this->ambiente->render("login.html", []); }
+    public function paginaLogin()
+    {
+        echo $this->ambiente->render("login.html", []);
+    }
 
     /**
      * Autentica o usuário com base no e-mail e senha fornecidos.
@@ -74,7 +72,7 @@ class Login
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $avisos .= "Formato de email inválido.";
         } else {
-            $usuario = $this->userRepository->findByEmail($email);
+            $usuario = $this->userRepository->loadUserByEmail($email);
 
             if ($usuario && password_verify($senha, $usuario["senha"])) {
                 $_SESSION["usuario"] = $usuario;
@@ -90,9 +88,6 @@ class Login
         echo $this->ambiente->render("login.html", $dados);
     }
 
-
-    //colocar rotas
-
     /**
      * Salva um novo login (método incompleto).
      *
@@ -104,7 +99,6 @@ class Login
         echo $this->ambiente->render("login.html", []);
     }
 
-
     /**
      * Realiza o logout do usuário, destruindo a sessão.
      *
@@ -113,7 +107,7 @@ class Login
      */
     public function logout(array $dados)
     {
-        unset($_SESSION["usuario"]);
+        unset($_SESSION['user_id']);
 
         // destrói a sessão
         session_destroy();

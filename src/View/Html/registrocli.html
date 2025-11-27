@@ -1,0 +1,45 @@
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="/public/css/registrocli.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+        <a href="/" class="seta-voltar"></a>
+
+        <header class="brand-header" role="banner">
+            <div class="brand" aria-label="Sid'sMart">
+                <span class="brand-green">Sid'</span><span class="brand-apos">s</span><span
+                    class="brand-red">Mart</span>
+            </div>
+        </header>
+        <div class="container">
+
+            <main class="card">
+                <h2 class="titulo">Você precisa ter uma conta para realizar suas compras no site.</h2>
+
+                <form class="register-form" action="novoUsuario" method="post">
+
+                    <div class="grid-2col">
+
+                        <input type="text" name="nome" placeholder="Nome..." required>
+                        <input type="text" name="endereco" placeholder="Endereço..." required>
+                        <input type="text" name="email" placeholder="Email/telefone..." required>
+                        <input type="text" name="cpf" placeholder="CPF..." required>
+                        <input type="text" name="senha" placeholder="digite sua Senha..." required>
+                        <input type="text" name="senha2" placeholder="Confirme a senha..." required>
+                     
+                        <div class="form-actions">
+                            <button class="btn-register" type="submit">Cadastrar-se</button>
+                        </div>
+                </form>
+        </div>
+
+    </div>

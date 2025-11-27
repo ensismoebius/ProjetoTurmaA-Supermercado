@@ -112,7 +112,7 @@ body {
     font-family: 'Aoboshi One', sans-serif;
     color: #093A21; /* verde escuro do tema */
     outline: none; /* remove o contorno padrão */
- 
+
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* sombra leve */
     transition: all 0.4s ease; /* animação suave */
 }

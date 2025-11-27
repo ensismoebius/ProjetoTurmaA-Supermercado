@@ -1,9 +1,10 @@
 <?php
 namespace GrupoA\Supermercado\Controller;
 
-use GrupoA\Supermercado\User; // Importação da classe User (atualmente não utilizada neste arquivo).
-use GrupoA\Supermercado\Produto; // Importação da classe Produto (assumindo que seja um DTO ou classe de modelo).
-use GrupoA\Supermercado\Database; // Importação da classe Database para interação com o banco de dados.
+use GrupoA\Supermercado\Model\Produto;
+use GrupoA\Supermercado\Model\Database;
+use GrupoA\Supermercado\Model\ProductRepository;
+use GrupoA\Supermercado\Service\Util;
 
 /**
  * Classe Admin
@@ -24,6 +25,11 @@ class Admin
     private \Twig\Loader\FilesystemLoader $carregador;
 
     /**
+     * @var ProductRepository
+     */
+    private ProductRepository $productRepository;
+
+    /**
      * Construtor da classe Admin.
      *
      * Inicia a sessão e verifica se o usuário está autenticado.
@@ -32,16 +38,12 @@ class Admin
      */
     public function __construct()
     {
-        session_start(); // Inicia a sessão (deve ser movido para o index.php).
-        if (!isset($_SESSION["usuario"])) {
-            header("Location: /login"); // Redireciona para o login se não houver usuário na sessão.
-            exit;
-        }
-
+        Util::averigua();
         // Configura o carregador de templates Twig para buscar arquivos na pasta "src/View".
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View");
         // Inicializa o ambiente Twig.
         $this->ambiente = new \Twig\Environment($this->carregador);
+        $this->productRepository = new ProductRepository(Database::getConexao());
     }
 
     /**
@@ -53,15 +55,16 @@ class Admin
     public function formularioEditarProduto(array $dados)
     {
         $id = intval($dados["id"] ?? 0); // Obtém o ID do produto dos dados e garante que seja um inteiro.
-        $bd = new Database(); // Instancia a classe Database (deve ser refatorado para usar um repositório).
-        $produto = $bd->buscarProdutoPorId($id); // Busca o produto no banco de dados.
+        $produto = $this->productRepository->buscarProdutoPorId($id); // Busca o produto no banco de dados.
 
         if (!$produto) {
             // Se o produto não for encontrado, renderiza o formulário com uma mensagem de aviso.
-            echo $this->ambiente->render("AtualizarProduto.html",
+            echo $this->ambiente->render(
+                "AtualizarProduto.html",
                 [
                     "avisos" => "Produto não encontrado."
-                ]);
+                ]
+            );
             return;
         }
         // Renderiza o formulário de atualização de produto com os dados do produto encontrado.
@@ -79,8 +82,7 @@ class Admin
      */
     public function listarProdutos(): void
     {
-        $bd = new Database(); // Instancia a classe Database (deve ser refatorado para usar um repositório).
-        $produtos = $bd->buscarProdutos(); // Busca todos os produtos no banco de dados.
+        $produtos = $this->productRepository->buscarProdutos(); // Busca todos os produtos no banco de dados.
 
         // Renderiza o template "ListarProdutos.html" com a lista de produtos.
         echo $this->ambiente->render("ListarProdutos.html", [
@@ -118,9 +120,8 @@ class Admin
             $produto->descricao = $descricao;
             $produto->quantidade = $quantidade;
 
-            $bd = new Database(); // Instancia a classe Database (deve ser refatorado para usar um repositório).
             // Tenta atualizar o produto no banco de dados.
-            if ($bd->atualizaProduto($produto)) {
+            if ($this->productRepository->atualizaProduto($produto)) {
                 $avisos = "Produto atualizado com sucesso!";
             } else {
                 $avisos = "Erro ao atualizar produto.";
