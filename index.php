@@ -67,3 +67,4 @@ $roteador->post("/produto/editar", "Admin:editarProduto");
 
 // Despacha a requisição atual para a rota correspondente.
 $roteador->dispatch();
+
