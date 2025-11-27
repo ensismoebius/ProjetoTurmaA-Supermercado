@@ -1,0 +1,3 @@
+Instalação feita com o comando: sudo apt install mysql-server -y.
+o código está instalando o MySQL e dizendo sim para todas as configurações do MySQL.
+resolve #217  
