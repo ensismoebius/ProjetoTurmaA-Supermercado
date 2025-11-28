@@ -25,17 +25,10 @@ class Database
         // Configurações do banco de dados, crie 
         // variáveis de ambiente para que a conexão 
         // com o banco de dados seja feita.
-<<<<<<< Updated upstream
-        $dbHost = getenv('DB_HOST') ?: '192.168.0.231';
-        $dbName = getenv('DB_NAME') ?: 'BANCOSID';
-        $dbUser = getenv('DB_USER') ?: 'Sidsmart';
-        $dbPass = getenv('DB_PASS') ?: 'Senha2DS!';
-=======
         $dbHost = getenv('DB_HOST') ?: '192.168.0.12';
         $dbName = getenv('DB_NAME') ?: 'PRJ2DSA';
         $dbUser = getenv('DB_USER') ?: 'Aluno2DS';
         $dbPass = getenv('DB_PASS') ?: 'SenhaBD2';
->>>>>>> Stashed changes
 
         try {
             $this->conexao = new \PDO(

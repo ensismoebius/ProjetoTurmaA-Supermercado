@@ -85,39 +85,8 @@ class Admin
         ]);
     }
     
-    /**
-     * 
-     * @param array $dados Array contendo os dados do produto a serem atualizados.
-     * @return void Renderiza a página com a lista de produtos.
-     */
-    public function deletarUmProduto(array $dados): void
-    {   
-        $id = intval($dados["id"] ?? 0);
-        $bd = new Database(); // Instancia a classe Database (deve ser refatorado para usar um repositório).
 
-        $produtos = $bd->buscarProdutoPorId($id); // Busca todos os produtos no banco de dados.
-
-        if(!$produto || $id = "")
-        {
-        echo $this->ambiente->render(
-            "DeletarProdutos.html",
-            [
-                "avisos" => "Produto não encontrado."
-            ]
-        );
-        return;
-        }else {
-
-        // Renderiza o template "ListarProdutos.html" com a lista de produtos.
-        echo $this->ambiente->render("DeletarProdutos.html",
-         [
-            "avisos" => "Produto deletado co sucesso"
-        ]);
-
-    }
-    }
-
-
+ 
 
     /**
      * Processa a requisição de atualização de um produto.
