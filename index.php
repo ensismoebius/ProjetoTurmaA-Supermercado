@@ -47,6 +47,11 @@ $roteador->post("/checkout", "Checkout:finalizarPedido");
 $roteador->get("/registro", "Registro:paginaRegistro");
 $roteador->post('/novoUsuario', "Registro:novoUsuario");
 
+$roteador->post("/carrinho/add", "Carrinho:add");
+$roteador->post("/carrinho/remove", "Carrinho:remove");
+$roteador->get("/carrinho/view", "Carrinho:view");
+$roteador->get("/carrinho/clear", "Carrinho:clear");
+
 // === Área administrativa ===
 // Grupo de rotas relacionadas ao login.
 $roteador->group("login");
