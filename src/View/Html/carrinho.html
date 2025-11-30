@@ -48,9 +48,7 @@
             <img src="/public/img/Seta.png" class="SetaPag"></a>
     </div>
 
-    <form>
-
-        <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
+    
 
         <div class="CarrinhoResumo">
 
@@ -61,6 +59,14 @@
                     <p>total de produtos: {{produto.total}}</p>
                 </div>
                 <hr class="divisor">
+
+                 {% for produto in carrinho.produtos %}
+
+   <form action="/carrinho/add" method="POST" class="form-produto">
+    <input type="hidden" name="product_id" value="{{ produto.id }}">
+    <input type="hidden" name="nome" value="{{ produto.nome }}">
+    <input type="hidden" name="valor" value="{{ produto.valor }}">
+    <input type="hidden" class="QTDE" name="QTDE" value="1">
 
                 <div class="produto">
                     <div class="produto-info">
@@ -81,15 +87,16 @@
                         </div>
 
                         <div class="btnCarrinho">
-                            <button class="remover">Remover</button>
-                            <button class="favoritar">Favoritar</button>
+                            <button class="remover" type="submit" formaction="/carrinho/remove">Remover</button>
+                            <button class="favoritar" type="submit" formaction="/favoritos/add">Favoritar</button>
                         </div>
                     </div>
                 </div>
+                </form>
+
+            {% endfor %}
             </div>
 
-            <!--{% endfor %}
-        {% for Carrinho in informações %}-->
 
             <div class="Resumo">
 
@@ -119,8 +126,6 @@
             <!--{% endfor %}-->
 
         </div>
-    </form>
-
     &copy Sid's-Mart 2025
 </body>
 
