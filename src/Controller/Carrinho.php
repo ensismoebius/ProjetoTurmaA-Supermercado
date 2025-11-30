@@ -24,11 +24,34 @@ class Carrinho
     $nome = $_POST['nome'];
     $valor = floatval($_POST['valor']);
     $QTDE = isset($_POST['QTDE']) ? intval($_POST['QTDE']) : 1;
+    $foto1 = $_POST['foto1'] ?? "";
 
-    CarrinhoUtil::adicionarProduto($idProd, $nome, $valor, $QTDE);
+    CarrinhoUtil::adicionarProduto($idProd, $nome, $valor, $QTDE, $foto1);
 
     header("Location: /carrinho/view");
     exit;
 }
 
+
+
+public function view()
+{
+    $carrinho = $_SESSION['cart'];
+
+    $resumo = CarrinhoUtil::calcularResumo($carrinho);
+
+   $dadosResumo = [
+            "tempo" => CarrinhoUtil::calcularTempoEntrega('02998-060',$_SESSION['usuario']['cep'] ?? null),
+            "endereco" => $_SESSION['usuario']['endereco'] ?? "Endereço não informado",
+            "subtotal" => number_format($resumo["subtotal"], 2, ',', '.'),
+             "desconto" => number_format(0, 2, ',', '.'),
+            "txEntrega" => number_format($resumo["txEntrega"], 2, ',', '.'),
+            "total" => number_format($resumo["total"], 2, ',', '.')
+        ];
+
+        echo $this->ambiente->render("carrinho.html", [
+            "carrinho" => $carrinho,
+            "resumo" => $dadosResumo,
+        ]);
+    }
 }
