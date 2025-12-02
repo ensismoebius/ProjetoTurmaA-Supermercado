@@ -17,3 +17,8 @@ agora vamos ajustar as configurações e trocar a senha do root, porque a que co
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
+
+
+O projeto DevOps tem se mostrado uma excelente oportunidade de aprendizado prático sobre a criação e manutenção de servidores. Apesar de ainda não estar 
+totalmente finalizado, o progresso alcançado demosntra domínio dos conceito fundamentais e comprometimento com o desenvolvimento técnico da equipe.
+A conclusão das próximas etapas permitirá copnsolidar um ambiente funcional, servindo de base para futuros projetos de hospedagem e deploy. resolve #356
