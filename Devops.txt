@@ -17,3 +17,7 @@ agora vamos ajustar as configurações e trocar a senha do root, porque a que co
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
+
+Até o presente momento, o servidor está hospedado em uma máquina local, com MySQL, Apache2, PhpMyAdmin, FTP e usuários pré cadastrados.
+As próximas etapas incluem finalizar e realizar os ajustes de acesso e permissões de usuário, tornando o ambiente completamente operacional e funcionando.
+resolve #350
