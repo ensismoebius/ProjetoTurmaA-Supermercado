@@ -205,3 +205,22 @@ CREATE TABLE `ITENS` (
  `valor_total` decimal(10,2) DEFAULT NULL,
  PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `LOTES` (
+ `lotcodigo` int NOT NULL AUTO_INCREMENT,
+ `armcodigo` int DEFAULT NULL,
+ `catcodigo` int DEFAULT NULL,
+ `prdcodigo` int DEFAULT NULL,
+ `numlote` int DEFAULT NULL,
+ `dataproducao` date DEFAULT NULL,
+ `validade` varchar(50) DEFAULT NULL,
+ `dtexpiracao` date DEFAULT NULL,
+ `dtentrada` date DEFAULT NULL,
+ PRIMARY KEY (`lotcodigo`),
+ KEY `armcodigo` (`armcodigo`),
+ KEY `catcodigo` (`catcodigo`),
+ KEY `prdcodigo` (`prdcodigo`),
+ CONSTRAINT `LOTES_ibfk_1` FOREIGN KEY (`armcodigo`) REFERENCES `ARMAZENAMENTOS` (`armcodigo`),
+ CONSTRAINT `LOTES_ibfk_2` FOREIGN KEY (`catcodigo`) REFERENCES `CATEGORIAS` (`catcodigo`),
+ CONSTRAINT `LOTES_ibfk_3` FOREIGN KEY (`prdcodigo`) REFERENCES `PRODUTOS` (`PRDCODIGO`)
+);
