@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
-    <link rel="stylesheet" href="../Css/carrinho.css">
     <script src="/public/script/carrinho.js"></script>
 
     <link rel="stylesheet" href="/public/css/carrinho.css">
@@ -14,13 +13,13 @@
 <body>
 
     <!--Pesquisa e menu-->
-    <div class="TopoInfo">
+    <header class="TopoInfo">
 
-         <!--redireciona pra pag inicial-->
-         <div class="LogoPag">
+        <!--redireciona pra pag inicial-->
+        <div class="LogoPag">
             <a href="#" class="Logosid">
-            <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
-         </div>
+                <span class="logo"><img src="/public/img/Logo.svg"></span> </a>
+        </div>
 
         <div class="pesquisar">
             <input type="text" class="txtPesquisar">
@@ -40,12 +39,12 @@
             <a href="#" class="BtnMenu C">Carrinho
                 <span class="icon"><img src="/public/img/Carrinho.png"></span> </a>
         </nav>
-    </div>
+    </header>
 
     <!--Seta da navegação-->
     <div class="Setinha">
         <a href="#">
-            <img src="/public/img/Seta.png" class="SetaPag"></a>
+            <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
     </div>
 
     
@@ -73,6 +72,12 @@
     <input type="hidden" class="QTDE" name="QTDE" value="{{ produto.QTDE }}">
 
                 <div class="produto">
+
+                    <label class="selecionar">
+                        <input type="checkbox" class="fav-checkbox">
+                        <span class="icon"></span>
+                    </label>
+
                     <div class="produto-info">
                         <img src="{{ produto.foto1 }}" class="produto-img">
 
@@ -115,9 +120,10 @@
                     <span>Endereço: {{ resumo.endereco }}</span>
                 </div>
 
-                <p class="linha">Subtotal: <i class="traco"></i> <span> R${{ resumo.subtotal }}</span></p>
-                <p class="linha">Desconto: <i class="traco"></i> <span> R${{ resumo.desconto }}</span></p>
-                <p class="linha">Taxa de entrega: <i class="traco"></i> <span> R${{ resumo.txEntrega }}</span></p>
+                <p class="linha">Subtotal: <i class="traco"></i> <span> R${{ carrinho.subtotal }}</span></p>
+                <p class="linha">Desconto: <i class="traco"></i> <span> R${{ carrinho.desconto }}</span></p>
+                <p class="linha">Taxa de entrega: <i class="traco"></i> <span> R${{ carrinho.txEntrega }}</span></p>
+                <p class="linha">Itens selecionados: <i class="traco"></i> <span> R${{ carrinho.itens }}</span></p>
                 <hr class="divisor">
                 <p class="linha total">TOTAL: <span> R${{ resumo.total }} </span></p>
                 <!--talvez uma variavel com a soma dos valores-->
@@ -130,6 +136,27 @@
             <!--{% endfor %}-->
 
         </div>
+    </form>
+
+    <!--Rodapé-->
+    <footer class="Rodape">
+
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
+
+            <!-- centro: texto legal / informações -->
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
     &copy Sid's-Mart 2025
 </body>
 
