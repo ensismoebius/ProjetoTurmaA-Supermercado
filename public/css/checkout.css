@@ -282,6 +282,41 @@ body{
                 cursor: pointer;
             }
 
+        .finalicao-pedido{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            background-color: #fff;
+            border-color: #222;
+            border-radius: 15px;
+            width: 440px;
+            height: 390px;
+        }
+    
+            .items{
+                text-align: start;
+                max-height: 320px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .item{
+                display:flex;
+                gap:10px;
+                align-items:center
+            }
+            .item-info{
+                flex:1;
+                font-size: 0.95rem;
+            }
+            .item-qty{
+                margin: 8px;
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
+
         @media(max-width: 880px){
             .container{ grid-template-columns: 1fr; padding-bottom: 40px; }
         }
