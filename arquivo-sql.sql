@@ -195,3 +195,13 @@ CREATE TABLE `ITEM_PEDIDO` (
  KEY `itnPdd` (`itnPdd`),
  CONSTRAINT `ITEM_PEDIDO_ibfk_1` FOREIGN KEY (`itnPdd`) REFERENCES `PEDIDO` (`pddCod`)
 );
+
+CREATE TABLE `ITENS` (
+ `id` int NOT NULL AUTO_INCREMENT,
+ `FK_docto` int DEFAULT NULL,
+ `FK_prod` int DEFAULT NULL,
+ `quantidade` int DEFAULT NULL,
+ `valor_unit` decimal(10,2) DEFAULT NULL,
+ `valor_total` decimal(10,2) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+);
