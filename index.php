@@ -44,6 +44,9 @@ $roteador->get("/", "Principal:paginaPrincipal");
 $roteador->get("/checkout", "Checkout:paginaCheckout");
 $roteador->post("/checkout", "Checkout:finalizarPedido");
 
+// rota do carrinho (>_<)
+$router->get('/carrinho', 'CarrinhoController@index');
+
 $roteador->get("/registro", "Registro:paginaRegistro");
 $roteador->post('/novoUsuario', "Registro:novoUsuario");
 
