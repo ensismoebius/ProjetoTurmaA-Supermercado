@@ -243,4 +243,9 @@ public function deletarUmProduto(array $dados): void {
         // Renderiza o formulário de atualização com a mensagem de aviso.
         echo $this->ambiente->render("AtualizarProduto.html", ["avisos" => $avisos]);
     }
+
 }
+
+
+
+
