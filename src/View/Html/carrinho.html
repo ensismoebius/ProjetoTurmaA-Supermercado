@@ -47,7 +47,8 @@
             <img src="/public/img/SetaAmarela.png" class="SetaPag"></a>
     </div>
 
-    <form>
+    
+    <form method="POST" action="/finalizarCompra">
 
         <!--{% for produto in unico %} (comentado para não quebrar o css, quando for utilizalo pode descomentar e se precisar colocar os valores necessarios!)-->
 
@@ -57,9 +58,18 @@
 
                 <div class="tabela titulos">
                     <h1>SEU CARRINHO</h1>
-                    <p>total de produtos: {{produto.total}}</p>
+                    <p>total de produtos: {{carrinho|length}}</p>
                 </div>
                 <hr class="divisor">
+
+                 {% for produto in carrinho %}
+
+   <form action="/carrinho/add" method="POST" class="form-produto">
+    <input type="hidden" name="product_id" value="{{ produto.id }}">
+    <input type="hidden" name="nome" value="{{ produto.nome }}">
+    <input type="hidden" name="valor" value="{{ produto.valor }}">
+    <input type="hidden" name="foto1" value="{{ produto.foto1 }}">
+    <input type="hidden" class="QTDE" name="QTDE" value="{{ produto.QTDE }}">
 
                 <div class="produto">
 
@@ -80,33 +90,34 @@
 
                     <div class="acao-compra">
                         <div class="quantidade">
-                            <button class="menos">-</button>
-                            <input type="text" min="1" value="1" class="QTDE" readonly>
-                            <button class="mais">+</button>
+                            <button type="button" class="menos">-</button>
+                            <input type="text" min="1" value="{{ produto.QTDE }}" class="qtde" readonly>
+                            <button type="button" class="mais">+</button>
                         </div>
 
                         <div class="btnCarrinho">
-                            <button class="remover">Remover</button>
-                            <button class="favoritar">Favoritar</button>
+                            <button class="remover" type="submit" formaction="/carrinho/remove">Remover</button>
+                            <button class="favoritar" type="submit" formaction="/favoritos/add">Favoritar</button>
                         </div>
                     </div>
                 </div>
+                </form>
+
+            {% endfor %}
             </div>
 
-            <!--{% endfor %}
-        {% for Carrinho in informações %}-->
 
             <div class="Resumo">
 
                 <div class="tabela2 titulos">
                     <h1>RESUMO</h1>
-                    <p><!--estimativa de entrega--> {{ carrinho.tempo }}</p>
+                    <p><!--estimativa de entrega--> {{ resumo.tempo }}</p>
                 </div>
                 <hr class="divisor">
 
                 <div class="Endereço">
                     <img src="/public/img/Local.png" alt="Localização">
-                    <span>Endereço: {{ carrinho.endereco }}</span>
+                    <span>Endereço: {{ resumo.endereco }}</span>
                 </div>
 
                 <p class="linha">Subtotal: <i class="traco"></i> <span> R${{ carrinho.subtotal }}</span></p>
@@ -114,12 +125,12 @@
                 <p class="linha">Taxa de entrega: <i class="traco"></i> <span> R${{ carrinho.txEntrega }}</span></p>
                 <p class="linha">Itens selecionados: <i class="traco"></i> <span> R${{ carrinho.itens }}</span></p>
                 <hr class="divisor">
-                <p class="linha total">TOTAL: <span> R${{ carrinho.total }} </span></p>
+                <p class="linha total">TOTAL: <span> R${{ resumo.total }} </span></p>
                 <!--talvez uma variavel com a soma dos valores-->
 
                 <div class="btnCarrinho">
-                    <button>Finalizar compra</button>
-                    <button>Adicionar cupom</button>
+                    <button type="submit">Finalizar Compra</button>
+                    <button type="button">Adicionar cupom</button>
                 </div>
             </div>
             <!--{% endfor %}-->
@@ -146,6 +157,7 @@
         </div>
 
     </footer>
+    &copy Sid's-Mart 2025
 </body>
 
 </html>

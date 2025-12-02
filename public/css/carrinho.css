@@ -300,7 +300,7 @@ h1 {
   background: #8CBF52;
 }
 
-.quantidade .QTDE {
+.quantidade .qtde {
   pointer-events: none;
   user-select: none;
   width: 40px;
