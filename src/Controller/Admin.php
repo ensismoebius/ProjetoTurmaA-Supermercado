@@ -52,7 +52,78 @@ class Admin
      * @param array $dados Array contendo o ID do produto a ser editado.
      * @return void Renderiza o formulário de atualização de produto ou uma mensagem de erro.
      */
-    public function formularioEditarProduto(array $dados)
+    
+     public function formularioNovoProduto(array $dados)
+     {
+         echo $this->ambiente->render("formularioNovoProduto.html", $dados);
+     }
+ 
+     /**
+      * Salva um novo produto
+      * @param array $dados
+      * @return void
+      */
+
+     public function salvaProduto(array $dados)
+     {
+         $titulo = trim($dados["titulo"]);
+         $descricao = trim($dados["descricao"]);
+         $valor = $dados["valor"];
+         $categoria = trim($dados["categoria"]);
+         $fornecedor = trim($dados["fornecedor"]);
+     
+         $avisos = "";
+     
+         if ($titulo != "" && $descricao != "" && $valor > 0 && $categoria != "" && $fornecedor != "") 
+         {
+              // ta fazendo o uploud da imagem
+             if (!isset($_FILES['imagem']) || $_FILES['imagem']['error'] !== 0) {
+                 $avisos .= "Erro no upload da imagem.";
+             } else {
+     
+                 $arquivoTmp = $_FILES['imagem']['tmp_name'];
+                 $nomeOriginal = $_FILES['imagem']['name'];
+                 $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+     
+                 // arquivos permitidos
+                 $permitidos = ["jpg", "jpeg", "png", "webp"];
+                 if (!in_array($extensao, $permitidos)) {
+                     die("Formato inválido de imagem!");
+                 }
+     
+                 $nomeNovo = uniqid("prd_") . "." . $extensao;
+     
+                 // ?
+                 $pasta = __DIR__ . "/../../public/imagensProdutos/";
+     
+                 $caminhoFinal = $pasta . $nomeNovo;
+     
+                 // Mover arquivo para a pasta final
+                 move_uploaded_file($arquivoTmp, $caminhoFinal);
+     
+                 $produto = new Produto();
+                 $produto->prdTitulo = $titulo;
+                 $produto->prdDescr = $descricao;
+                 $produto->prdVlrUnit = $valor;
+                 $produto->prdCateg = $categoria;
+                 $produto->prdFor = $fornecedor;
+                 $produto->prdImagem = $nomeNovo; 
+     
+                 $bd = new Database();
+                 if ($bd->saveProduto($produto)) {
+                     $avisos .= "Produto cadastrado com sucesso.";
+                 } else {
+                     $avisos .= "Erro ao cadastrar produto.";
+                 }
+             }
+         }
+     
+         $dados["avisos"] = $avisos;
+         echo $this->ambiente->render("formularioNovoProduto.html", $dados);
+     }
+     
+    
+     public function formularioEditarProduto(array $dados)
     {
         $id = intval($dados["id"] ?? 0); // Obtém o ID do produto dos dados e garante que seja um inteiro.
         $produto = $this->productRepository->buscarProdutoPorId($id); // Busca o produto no banco de dados.
@@ -74,6 +145,43 @@ class Admin
         ]);
     }
 
+    /**
+ * Lida com a exclusão de um produto após a confirmação.
+ * @param array $dados Array contendo os dados do produto a serem deletados.
+ * @return void Renderiza a página com a lista de produtos ou redireciona.
+ */
+public function deletarUmProduto(array $dados): void {
+    
+    $id = intval($dados["id"] ?? 0);
+    $bd = new Database(); 
+
+ //valida o id
+    if ($id <= 0) {
+        // mensagem de erro
+        $_SESSION['alert_message'] = 'Erro na exclusão: ID inválido.';
+        $_SESSION['alert_type'] = 'error';
+        
+        // manda para a pagina listar produtos 
+        echo $this->ambiente->render("ListarProdutos.html");
+        return;
+    }
+
+    //deleta o produto
+    $produtoDeletado = $bd->deletarProduto($id);
+
+    if ($produtoDeletado) {
+        $_SESSION['alert_message'] = "Produto $id deletado com sucesso.";
+        $_SESSION['alert_type'] = 'success';
+    } else {
+        $_SESSION['alert_message'] = "Erro ao deletar o produto $id. O produto pode não existir.";
+        $_SESSION['alert_type'] = 'error';
+    }
+
+    // manda para pagina de listar produtos
+    echo $this->ambiente->render("ListarProdutos.html");
+}
+
+
 
     /**
      * Lista todos os produtos disponíveis no banco de dados.
@@ -89,7 +197,9 @@ class Admin
             "produtos" => $produtos
         ]);
     }
+    
 
+ 
 
     /**
      * Processa a requisição de atualização de um produto.
@@ -133,4 +243,9 @@ class Admin
         // Renderiza o formulário de atualização com a mensagem de aviso.
         echo $this->ambiente->render("AtualizarProduto.html", ["avisos" => $avisos]);
     }
+
 }
+
+
+
+
