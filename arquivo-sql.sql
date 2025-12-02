@@ -234,3 +234,19 @@ CREATE TABLE `MOVIMENTACAO` (
  KEY `tpm_mvt` (`MVTIPOMOV`),
  CONSTRAINT `tpm_mvt` FOREIGN KEY (`MVTIPOMOV`) REFERENCES `TIPO_MOVIMENTO` (`tpmCodigo`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
+
+CREATE TABLE `PEDIDO` (
+ `pddCod` int NOT NULL AUTO_INCREMENT,
+ `pddCli` int DEFAULT NULL,
+ `pddData` datetime NOT NULL,
+ `pddTipo` int NOT NULL,
+ `pddVlrTotal` decimal(10,0) DEFAULT NULL,
+ `pddForn` int DEFAULT NULL,
+ PRIMARY KEY (`pddCod`),
+ KEY `fk_pedidos_clientes` (`pddCli`),
+ KEY `fk_pedidos_fornec` (`pddForn`),
+ KEY `fk_pedidos_tipoMov` (`pddTipo`),
+ CONSTRAINT `fk_pedidos_clientes` FOREIGN KEY (`pddCli`) REFERENCES `CLIENTES` (`CLICODIGO`),
+ CONSTRAINT `fk_pedidos_fornec` FOREIGN KEY (`pddForn`) REFERENCES `FORNECEDORES` (`FRNCODIGO`),
+ CONSTRAINT `fk_pedidos_tipoMov` FOREIGN KEY (`pddTipo`) REFERENCES `TIPO_MOVIMENTO` (`tpmCodigo`)
+);
