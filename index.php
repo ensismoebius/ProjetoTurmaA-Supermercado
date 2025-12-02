@@ -41,11 +41,21 @@ $roteador->group(null);
 // Rota para a página principal.
 $roteador->get("/", "Principal:paginaPrincipal");
 
+// checkout
 $roteador->get("/checkout", "Checkout:paginaCheckout");
 $roteador->post("/checkout", "Checkout:finalizarPedido");
+$roteador->post("/finalizarCompra", "Pedido:finalizar");
 
+//registro
 $roteador->get("/registro", "Registro:paginaRegistro");
 $roteador->post('/novoUsuario', "Registro:novoUsuario");
+
+//carrinho
+$roteador->get("/carrinho/view", "Carrinho:view");
+$roteador->post("/carrinho/add", "Carrinho:add");
+$roteador->post("/carrinho/remove", "Carrinho:remove");
+$roteador->post("/carrinho/clear", "Carrinho:clear");
+
 
 // === Área administrativa ===
 // Grupo de rotas relacionadas ao login.
@@ -64,6 +74,10 @@ $roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
 // Rota para processar a edição de produto.
 $roteador->post("/produto/editar", "Admin:editarProduto");
 
+//rota para processar os produto
+$roteador->post("/produto/{id}/deletar", "Admin:deletarUmProduto");
+
 
 // Despacha a requisição atual para a rota correspondente.
 $roteador->dispatch();
+
