@@ -1,44 +1,37 @@
 <?php
 namespace GrupoA\Supermercado\Model;
 
+use GrupoA\Supermercado\Config\Config;
+
 /**
  * Classe Database
  *
- * Responsável por gerenciar a conexão com o banco de dados
- * e fornecer métodos para interagir com as tabelas.
+ * Responsável por gerenciar a conexão com o banco de dados.
  */
 class Database
 {
     /**
      * @var \PDO $conexao Objeto PDO para a conexão com o banco de dados.
      */
-    private \PDO $conexao;
+    private static ?\PDO $conexao = null;
 
     /**
-     * Construtor da classe Database.
+     * Retorna uma instância da conexão com o banco de dados.
      *
-     * Inicializa a conexão com o banco de dados utilizando variáveis de ambiente.
-     * Em caso de falha na conexão, encerra a aplicação.
+     * @return \PDO
+     * @throws \PDOException
      */
-    public function __construct()
+    public static function getConexao(): \PDO
     {
-        // Configurações do banco de dados, crie 
-        // variáveis de ambiente para que a conexão 
-        // com o banco de dados seja feita.
-        $dbHost = getenv('DB_HOST') ?: '192.168.0.231';
-        $dbName = getenv('DB_NAME') ?: 'BANCOSID';
-        $dbUser = getenv('DB_USER') ?: 'Sidsmart';
-        $dbPass = getenv('DB_PASS') ?: 'Senha2DS!';
+        if (self::$conexao === null) {
+            $dbConfig = Config::getDatabaseConfig();
 
-        try {
-            $this->conexao = new \PDO(
-                "mysql:host={$dbHost};dbname={$dbName}",
-                $dbUser,
-                $dbPass
+            self::$conexao = new \PDO(
+                "mysql:host={$dbConfig['host']};dbname={$dbConfig['name']}",
+                $dbConfig['user'],
+                $dbConfig['pass']
             );
-            $this->conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        } catch (\PDOException $e) {
-            die("Falha na conexão com o banco de dados: " . $e->getMessage());
+            self::$conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
     }
 
@@ -148,6 +141,7 @@ class Database
         return $produto ? $produto : false;
 
 
+        return self::$conexao;
     }
 
     
