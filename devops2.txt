@@ -1,6 +1,5 @@
-O comando utilizado foi: sudo apt install apacjhe2 -y.
+O comando utilizado foi: sudo apt install apache2 -y.
 essse comando instala o apache e diz sim para as configurações iniciais.
-resolve #195
 
 o comando que usamos para instalar foi:
 sudo apt install php -y. Esse comando instala o php e diz sim para todas as configurações iniciais. resolve #211
