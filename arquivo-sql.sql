@@ -65,4 +65,18 @@ CREATE TABLE `CONTROLE_ACESSO` (
  `DATA_CRIACAO` datetime DEFAULT NULL,
  `DATA_ACESSO` datetime DEFAULT NULL,
  PRIMARY KEY (`ID_ACESSO`)
-); 
+);
+
+CREATE TABLE `CUPOM` (
+ `cpmId` int NOT NULL AUTO_INCREMENT,
+ `cpmCodigo` varchar(20) NOT NULL,
+ `cpmDesc` varchar(100) NOT NULL,
+ `cpmTipo` int DEFAULT NULL,
+ `cpmValor` decimal(10,0) NOT NULL,
+ `cpmVldInic` date NOT NULL,
+ `cpmVldFin` date NOT NULL,
+ `cpmAtivo` tinyint(1) NOT NULL,
+ PRIMARY KEY (`cpmId`),
+ KEY `cpmTipo` (`cpmTipo`),
+ CONSTRAINT `CUPOM_ibfk_1` FOREIGN KEY (`cpmTipo`) REFERENCES `TIPO_CUPOM` (`tipoCpm`)
+);
