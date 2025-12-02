@@ -38,7 +38,7 @@ class Admin
      */
     public function __construct()
     {
-        Util::averigua();
+        Util::checkAdmin();
         // Configura o carregador de templates Twig para buscar arquivos na pasta "src/View".
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View");
         // Inicializa o ambiente Twig.
@@ -243,4 +243,9 @@ public function deletarUmProduto(array $dados): void {
         // Renderiza o formulário de atualização com a mensagem de aviso.
         echo $this->ambiente->render("AtualizarProduto.html", ["avisos" => $avisos]);
     }
+
 }
+
+
+
+
