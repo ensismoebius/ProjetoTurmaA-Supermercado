@@ -12,7 +12,7 @@ body{
     padding: 24px;
     display: flex;
     justify-content: center;
-    background: #f6f7fb;
+    background: #ffffff;
 }
 
     .container{
@@ -51,6 +51,7 @@ body{
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 12px;
+                    background-color: #ffffff;
                 }
 
                 label{
@@ -59,15 +60,25 @@ body{
                     display: block;
                     margin-bottom: 6px;
                 }
-                input[type="text"],
-                input[type="email"],
-                input[type="tel"],
-                input[type="number"],
+
+                input[type="text"] {
+                    background-color: #CDE2C0;
+                }
+
+                input[type="email"] {
+                    background-color: #CDE2C0;
+                }
+                input[type="tel"] {
+                    background-color: #CDE2C0;
+                }
+                input[type="number"] {
+                    background-color: #CDE2C0;
+                }
                 select,
                 textarea{
                     width: 100%;
                     padding: 10px;
-                    border: 1px solid #ddd;
+                    border: 1px solid #222;
                     border-radius: 6px;
                     font-size: 0.95rem;
                     box-sizing: border-box;
@@ -128,6 +139,7 @@ body{
             button.primary{
                 background: var(--accent);
                 color: #fff;
+                background-color: #2B5540;
                 border: none;
                 padding: 12px 16px;
                 border-radius: 6px;
@@ -136,7 +148,8 @@ body{
             }
             button.secondary{
                 background: transparent;
-                color: var(--accent);
+                color: #fff;
+                background-color: #2B5540;
                 border: 1px solid var(--accent);
                 padding: 11px 14px;
                 border-radius: 6px;
