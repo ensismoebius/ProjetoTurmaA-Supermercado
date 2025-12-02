@@ -164,3 +164,14 @@ CREATE TABLE `FUNCIONARIOS` (
  CONSTRAINT `cargo_funci` FOREIGN KEY (`ID_TURNO`) REFERENCES `FN_CARGO` (`ID_CARGO`) ON DELETE RESTRICT ON UPDATE RESTRICT,
  CONSTRAINT `turno_funci` FOREIGN KEY (`ID_TURNO`) REFERENCES `FN_TURNO` (`ID_TURNO`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
+
+CREATE TABLE `INTERACOES` (
+ `id_interacao` int NOT NULL,
+ `id_suporte` int NOT NULL,
+ `data_interacao` date NOT NULL,
+ `tipo_interacao` varchar(50) NOT NULL,
+ `descricao` text,
+ PRIMARY KEY (`id_interacao`),
+ KEY `id_suporte` (`id_suporte`),
+ CONSTRAINT `INTERACOES_ibfk_1` FOREIGN KEY (`id_suporte`) REFERENCES `SUPORTE` (`id_suporte`)
+);
