@@ -184,3 +184,14 @@ CREATE TABLE `INVENTARIO` (
  `IVNTRECONTAGEM` int DEFAULT NULL,
  PRIMARY KEY (`INVTCODIGO`)
 );
+
+CREATE TABLE `ITEM_PEDIDO` (
+ `itnCod` int NOT NULL,
+ `itnPdd` int NOT NULL,
+ `itnPrd` int NOT NULL,
+ `itnVlr` decimal(10,0) DEFAULT NULL,
+ `itnQntd` int DEFAULT NULL,
+ PRIMARY KEY (`itnCod`,`itnPdd`),
+ KEY `itnPdd` (`itnPdd`),
+ CONSTRAINT `ITEM_PEDIDO_ibfk_1` FOREIGN KEY (`itnPdd`) REFERENCES `PEDIDO` (`pddCod`)
+);
