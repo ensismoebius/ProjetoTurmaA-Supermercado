@@ -223,7 +223,7 @@ body{
         .item{
             display:flex;
             gap:10px;
-            align-items:center
+            align-items:center;
         }
         .item-info{
             flex:1;
@@ -295,7 +295,7 @@ body{
         }
     
             .items{
-                text-align: start;
+                text-align: center;
                 max-height: 320px;
                 overflow: auto;
                 display: flex;
@@ -305,7 +305,7 @@ body{
             .item{
                 display:flex;
                 gap:10px;
-                align-items:center
+                align-items: center;
             }
             .item-info{
                 flex:1;
