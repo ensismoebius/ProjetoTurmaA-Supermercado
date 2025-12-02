@@ -20,4 +20,21 @@ que não podem acessar o banco.
 
 O comando utilizado foi: sudo apt install apache2 -y.
 essse comando instala o apache e diz sim para as configurações iniciais.
-resolve #195
+
+As etapas realizadas no projeto foram:
+
+1. Instalação da ISO do Ubuntu em um pendrive utilizando ventoy e configuração do boot;
+2. Instalação do sistema operacional em uma máquina local;
+3. Download e instalação do MySQL e do Apache24. Configuração inicial dos serviços;
+4. Configuração inicial dos serviços;
+5. instalação do Php;
+6. instalação do PhpMyAdmin;
+7. configuração inicial;
+8. Instalação do FTP;
+9. Instalação do vsftpd;
+10. Configuração do FTP;
+11. configuração dos usuários;
+12. criação do banco de dados;
+13. implementação das tabelas.
+
+CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #348
