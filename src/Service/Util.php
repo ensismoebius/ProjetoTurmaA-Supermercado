@@ -47,42 +47,44 @@ class CarrinhoUtil
     }
 
     
-    public static function calcularTempoEntrega($cepOrigem, $cepDestino, $codigoServico = '04014') {
-        if (empty($cepDestino) || empty($cepOrigem)) {
-        return null;
-    }
-        //API que faz requisição com o calculador online de entrega
-    $url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrazo"
-         . "?nCdServico={$codigoServico}"
-         . "&sCepOrigem={$cepOrigem}"
-         . "&sCepDestino={$cepDestino}";
+   public static function calcularTempoEntrega($cepOrigem, $cepDestino)
+    {
+        if (!$cepOrigem || !$cepDestino) {
+            return "Indefinido";
+        }
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $resposta = curl_exec($ch);
+        $orig = intval(preg_replace('/\D/', '', $cepOrigem));
+        $dest = intval(preg_replace('/\D/', '', $cepDestino));
 
-    if ($resposta === false) {
-        curl_close($ch);
-        return null;
+        $dist = abs($orig - $dest) / 10000;
+
+        if ($dist <= 5) return "1 dia útil";
+        if ($dist <= 10) return "2 dias úteis";
+        return "3 dias úteis";
     }
 
-    curl_close($ch);
+     public static function calcularTaxaEntrega($cepOrigem, $cepDestino)
+    {
+        if (!$cepDestino) return 0;
 
-    $xml = simplexml_load_string($resposta);
-    if ($xml === false || !isset($xml->Servicos->cServico->PrazoEntrega)) {
-        return null; 
-    }
+        $cep = intval(preg_replace('/\D/', '', $cepDestino));
 
-    return (int) $xml->Servicos->cServico->PrazoEntrega;
-}
+        if ($cep >= 1000000 && $cep <= 2999999) {
+            return 8.90;
+        }
+        if ($cep >= 3000000 && $cep <= 4999999) {
+            return 12.90;
+        }
+        if ($cep >= 5000000 && $cep <= 7999999) {
+            return 16.90;
+        }
 
+        return 20.00; 
+    } 
 
-
-     public static function calcularResumo(array $carrinho): array
+     public static function calcularResumo(array $carrinho, $txEntrega): array
     {
         $subtotal = 0;
-        $txEntrega = 5.89; // a taxa fixa do mercado
         $total = 0;
 
         foreach ($carrinho as $p) {
@@ -97,8 +99,15 @@ class CarrinhoUtil
         return [
             "subtotal" => $subtotal,
             "txEntrega" => $txEntrega,
-            "total" => $total
+            "total" => $total,
             "desconto" => 0
         ];
+    }
+
+    public static function removerProduto($id)
+    {
+        if (isset($_SESSION['cart'][$id])) {
+            unset($_SESSION['cart'][$id]);
+        }
     }
 }

@@ -32,13 +32,30 @@ class Carrinho
     exit;
 }
 
+     public function remove()
+    {
+        $id = $_POST['product_id'];
+        CarrinhoUtil::removerProduto($id);
+
+        header("Location: /carrinho/view");
+        exit;
+    }
+
+    public function clear()
+    {
+        $_SESSION['cart'] = [];
+        header("Location: /carrinho/view");
+        exit;
+    }
 
 
 public function view()
 {
     $carrinho = $_SESSION['cart'];
+    $cepUser = $_SESSION['usuario']['cep'] ?? null;
 
-    $resumo = CarrinhoUtil::calcularResumo($carrinho);
+    $taxaEntrega = CarrinhoUtil::calcularTaxaEntrega('02998-060', $cepUser);
+    $resumo = CarrinhoUtil::calcularResumo($carrinho, $taxaEntrega);
 
    $dadosResumo = [
             "tempo" => CarrinhoUtil::calcularTempoEntrega('02998-060',$_SESSION['usuario']['cep'] ?? null),
@@ -55,3 +72,5 @@ public function view()
         ]);
     }
 }
+
+
