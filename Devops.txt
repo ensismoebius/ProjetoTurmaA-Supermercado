@@ -1,3 +1,5 @@
 Instalação feita com o comando: sudo apt install mysql-server -y.
 o código está instalando o MySQL e dizendo sim para todas as configurações do MySQL.
-resolve #217  
+
+agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
+que não podem acessar o banco. 
