@@ -1,0 +1,3 @@
+O comando utilizado foi: sudo apt install apacjhe2 -y.
+essse comando instala o apache e diz sim para as configurações iniciais.
+resolve #195
