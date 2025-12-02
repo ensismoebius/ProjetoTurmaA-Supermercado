@@ -18,6 +18,9 @@ agora vamos ajustar as configurações e trocar a senha do root, porque a que co
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
 
+O comando utilizado foi: sudo apt install apache2 -y.
+essse comando instala o apache e diz sim para as configurações iniciais.
+
 As etapas realizadas no projeto foram:
 
 1. Instalação da ISO do Ubuntu em um pendrive utilizando ventoy e configuração do boot;
