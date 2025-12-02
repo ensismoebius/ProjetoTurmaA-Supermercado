@@ -65,6 +65,9 @@ $roteador->get("/produto/{id}/editar", "Admin:formularioEditarProduto");
 // Rota para processar a edição de produto.
 $roteador->post("/produto/editar", "Admin:editarProduto");
 
+//rota para processar os produto
+$roteador->post("/produto/{id}/deletar", "Admin:deletarUmProduto");
+
 
 // Despacha a requisição atual para a rota correspondente.
 $roteador->dispatch();

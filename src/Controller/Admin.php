@@ -160,7 +160,9 @@ class Admin
             "produtos" => $produtos
         ]);
     }
+    
 
+ 
 
     /**
      * Processa a requisição de atualização de um produto.
