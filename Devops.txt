@@ -3,7 +3,6 @@ o código está instalando o MySQL e dizendo sim para todas as configurações d
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
-//
 
-CREATE DATABASE BANCOSID; .
-esse foi o comando usado para criar a base de dados. resolve #340
+//
+CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #340
