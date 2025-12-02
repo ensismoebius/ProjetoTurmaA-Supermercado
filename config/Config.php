@@ -21,7 +21,7 @@ class Config
         return [
             'host' => 'smtp.gmail.com',
             'username' => 'sidsmart404@gmail.com',
-            'password' => getenv('EMAIL_PASSWORD') ?: 'SENHA_DO_APP_FIXA', // It's better to use an environment variable
+            'password' => getenv('EMAIL_PASSWORD'),
             'secure' => PHPMailer::ENCRYPTION_STARTTLS,
             'port' => 587,
             'from_email' => 'sidsmart404@gmail.com',

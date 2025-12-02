@@ -38,7 +38,7 @@ class Admin
      */
     public function __construct()
     {
-        Util::averigua();
+        Util::checkAdmin();
         // Configura o carregador de templates Twig para buscar arquivos na pasta "src/View".
         $this->carregador = new \Twig\Loader\FilesystemLoader("./src/View");
         // Inicializa o ambiente Twig.

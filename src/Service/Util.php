@@ -4,12 +4,12 @@ namespace GrupoA\Supermercado\Service;
 
 class Util
 {
-    public static function averigua()
+    public static function checkAdmin()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
             header("Location: /login");
             exit;
         }

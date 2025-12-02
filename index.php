@@ -15,8 +15,6 @@ require "vendor/autoload.php";
 
 session_start();
 
-$db = new GrupoA\Supermercado\Model\Database();
-
 // Determina o protocolo (HTTP ou HTTPS) da requisição atual.
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 // Obtém o host da requisição (ex: localhost, www.example.com).
@@ -47,7 +45,7 @@ $roteador->post("/checkout", "Checkout:finalizarPedido");
 $roteador->post("/finalizarCompra", "Pedido:finalizar");
 
 // rota do carrinho(>_<)
-$router->get('/carrinho', 'CarrinhoController@index');
+$roteador->get('/carrinho', 'Carrinho:index');
 
 //registro
 $roteador->get("/registro", "Registro:paginaRegistro");
