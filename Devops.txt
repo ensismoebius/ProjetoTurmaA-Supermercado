@@ -38,3 +38,10 @@ As etapas realizadas no projeto foram:
 13. implementação das tabelas.
 
 CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #348
+
+
+O comando grep é uma ferramenta de linha de comando usada para pesquisar em arquivos por linhas que contenham um padrão de texto, que pode ser uma palavra-chave ou uma expressão regular. 
+Ele é usado para filtrar a saída de outros comandos, exibindo apenas as linhas que correspondem ao padrão especificado. 
+
+Exemplo: grep "exemplo" meu_arquivo.txt. ( aqui nós estamos buscando a palavra em um arquivo txt)
+resolve #372
