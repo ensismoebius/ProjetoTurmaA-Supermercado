@@ -38,3 +38,7 @@ As etapas realizadas no projeto foram:
 13. implementação das tabelas.
 
 CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #348
+
+o significado de sudo rm-rf é que você está forçando a exclusão de todos os diretórios e arquivos como superusuário.
+Ele apaga do último ao primeiro arquivo. 
+Exemplo:  sudo rm -rr nome-da-pasta,resolve #375
