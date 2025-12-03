@@ -17,3 +17,10 @@ agora vamos ajustar as configurações e trocar a senha do root, porque a que co
 
 agora, após a instalação e configurações básicas, vamos configurar de forma mais segura. e aí entramos com o comando: mysql_secure_installation para definir força na senha, cuidar de usuários anônimos
 que não podem acessar o banco. 
+
+O comando GRAP é uma ferramenta de linha de comando usada para pesquisar em arquivos por linhas que contenham um padrão de texto, que pode ser uma palavra-chave ou uma expressão regular do
+arquivo ou dos arquivos onde a pesquisa será realizada. Se nenhum arquivo for especificado, o grep lerá da entrada padrão.
+
+Exemplo: 
+grep 'palavra-chave' arquivo.txt ( aqui ele procura a palavra que você quer no arquivo, no exemplo usamos o arquivo.txt)
+resolve #372
