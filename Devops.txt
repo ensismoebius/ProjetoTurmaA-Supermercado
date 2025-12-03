@@ -38,3 +38,9 @@ As etapas realizadas no projeto foram:
 13. implementação das tabelas.
 
 CREATE DATABASE BANCOSID; esse foi o comando usado para criar a base de dados dentro do MySQL. resolve #348
+
+Pressione Ctrl + R e comece a digitar parte de um comando que você usou anteriormente.
+O terminal exibirá o último comando que corresponde ao que você digitou.
+
+O comando Ctrl + L no contexto de um servidor Linux, geralmente acessado via terminal (SSH, PowerShell ou console local), é um atalho de teclado usado para limpar a tela da interface de linha de comando.
+resolve #374 
