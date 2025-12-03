@@ -22,5 +22,5 @@ O comando GRAP é uma ferramenta de linha de comando usada para pesquisar em arq
 arquivo ou dos arquivos onde a pesquisa será realizada. Se nenhum arquivo for especificado, o grep lerá da entrada padrão.
 
 Exemplo: 
-grep 'palavra-chave' arquivo.txt ( aqui ele procura a palavra que você quer no arquivo, no exemplo usamos o arquivo.txt)
+grap 'palavra-chave' arquivo.txt ( aqui ele procura a palavra que você quer no arquivo, no exemplo usamos o arquivo.txt)
 resolve #372
