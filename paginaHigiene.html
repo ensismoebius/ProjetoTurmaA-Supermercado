@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paginas.css">
+    <title>Higiene</title>
+</head>
+<body>
+    <header class="topo">
+        <div class="logo">
+    <img src="../Imagens/Icones/sidsMarket.png" alt="Logo do mercado">
+    </div>
+
+    <div class="barraPesquisa">
+        <form action="barraPesquisa.php">
+            <input type="text" placeholder="Pesquise por produtos ou marcas" name="pesquisa">
+        </form>
+        </div>
+
+
+    <div class="carrinho">
+        <img src="../Imagens/Icones/iconeCarrinho.png" alt="Carrinho de compra">
+    </div>
+</header>
+<div class="navegacao">
+  <a class="botao-cadastrar" href="cadastrar.html"><b>Cadastre-se</b></a>
+  <a class="#oferta" href="paginaOfertas.html"><b>Ofertas</b></a>
+  <a class="limpeza" href="paginaLimpeza.html"><b>Limpeza</b></a>
+  <a class="acougue" href="paginaFrios.html"><b>Frios</b></a>
+  <a class="acougue" href="paginaAcougue.html"><b>Açougue</b></a>
+  <a class="bebidas" href="paginaBebidas.html"><b>Bebidas</b></a>
+  <a class="botao-higiene" href="paginaHigiene.html"><b>Higiene e perfumaria</b></a>
+  <a class="padaria-matinais" href="paginaPadaria.html"><b>Padaria</b></a>
+  <a class="congelados" href="paginaCongelados.html"><b>Congelados</b></a>
+  <a class="hortifrut" href="paginaHortifrut.html"><b>Hortifrut</b></a>
+  <a class="descartaveis-embalagens" href="paginaDestacartaveis.html"><b>Embalagens</b></a>
+</div>
+
+    <div class="carrossel-container">
+    
+    <div class="banner-carrossel">
+    
+    <img class="imgCarrossel" src="../Imagens/Carrossel/sabonetes.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/escova.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/higiene.jpg">
+
+    <div class="textos-banner">
+        <h1>Higiene e perfumaria</h1>
+        <p>Produtos totais: 34</p>
+    </div>
+
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("imgCarrossel");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div class="secao-produtos">
+  <div class="conteudo">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <h3>Higiene e perfumaria</h3>
+
+      <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="bebes">Bebês</h4>
+  <ul>
+    <li class="filtro" data-filtro="acessorio">Acessório para bebê</li>
+    <li class="filtro" data-filtro="cremeAssadura">Creme para assadura</li>
+    <li class="filtro" data-filtro="fraldaG">Fralda G</li>
+    <li class="filtro" data-filtro="fraldaM">Fralda M</li>
+    <li class="filtro" data-filtro="fraldaP">Fralda P</li>
+    <li class="filtro" data-filtro="fraldaRN">Fralda RN</li>
+    <li class="filtro" data-filtro="fraldaXG">Fralda XG</li>
+    <li class="filtro" data-filtro="fraldaXXG">Fralda XXG</li>
+    <li class="filtro" data-filtro="lenço">Lenço de papel e umedecido</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="cabelo">Cabelo</h4>
+  <ul>
+    <li class="filtro" data-filtro="descolorante">Água oxigenada e descolorante</li>
+    <li class="filtro" data-filtro="condicionador">Condicionador</li>
+    <li class="filtro" data-filtro="cremePentear">Creme para pentear</li>
+    <li class="filtro" data-filtro="hidratacao">Creme para tratamento</li>
+    <li class="filtro" data-filtro="gel">Gel fixador</li>
+    <li class="filtro" data-filtro="kitCabelo">Kit para cabelo</li>
+    <li class="filtro" data-filtro="penteEscova">Pente e escova</li>
+    <li class="filtro" data-filtro="shampoo">Shampoo</li>
+    <li class="filtro" data-filtro="tintura">Tintura para cabelo</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="corpo">Corpo</h4>
+  <ul>
+    <li class="filtro" data-filtro="buchaBanho">Bucha e esponja de banho</li>
+    <li class="filtro" data-filtro="pes">Desodorante para os pés</li>
+    <li class="filtro" data-filtro="unhas">Esmalte e acetona</li>
+    <li class="filtro" data-filtro="talco">Loção, talco e hidratante</li>
+    <li class="filtro" data-filtro="oleoP">Óleo perfumado</li>
+    <li class="filtro" data-filtro="repelente">repelente</li>
+  </ul>
+</div>
+
+    <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="barbear">Cremes de barbear e barbeadores</h4>
+  <ul>
+    <li class="filtro" data-filtro="aparelho">Aparelho, carga e lâmina de barbear</li>
+    <li class="filtro" data-filtro="espuma">Creme e espuma de barbear</li>
+    <li class="filtro" data-filtro="produtosBarba">Produtos para barba</li>
+  </ul>
+</div>
+
+     <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="desodorantes">Desodorantes</h4>
+  <ul>
+    <li class="filtro" data-filtro="aerossol">Aerossol</li>
+    <li class="filtro" data-filtro="cremeDesodorante">Creme</li>
+    <li class="filtro" data-filtro="liquido">Líquido</li>
+    <li class="filtro" data-filtro="rollOn">Roll-On</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="higieneBucal">Higiene bucal</h4>
+  <ul>
+    <li class="filtro" data-filtro="cremeDental">Creme dental</li>
+    <li class="filtro" data-filtro="enxaguante">Enxaguante</li>
+    <li class="filtro" data-filtro="escovaDente">Escova dental</li>
+    <li class="filtro" data-filtro="fioDental">Fio dental</li>
+    </ul>
+</div>
+<div class="menu-grupo">
+    <h4 class="filtro" data-filtro="higieneIntima">Higiene íntima</h4>
+    <ul>
+    <li class="filtro" data-filtro="absorvente">Absorvente</li>
+    <li class="filtro" data-filtro="sabIntimo">Sabonete íntimo</li>
+    </ul>
+</div>
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="papelHig">Papel higiênico</h4>
+    <ul>
+    <li class="filtro" data-filtro="dupla">Folha dupla</li>
+    <li class="filtro" data-filtro="simples">Folha simples</li>
+    <li class="filtro" data-filtro="trila">Folha tripla</li>
+    </ul>
+</div>
+<div class="menu-grupo">
+    <h4 class="filtro" data-filtro="sabonete">Sabonetes</h4>
+    <ul>
+    <li class="filtro" data-filtro="saboneteBarra">Sabonete em barra</li>
+    <li class="filtro" data-filtro="saboneteLiquido">Sabonete líquido</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="saude">Saúde</h4>
+  <ul>
+    <li class="filtro" data-filtro="alcool">Álcool Gel</li>
+    <li class="filtro" data-filtro="algodao">Algodão e curativo</li>
+    <li class="filtro" data-filtro="fraldaIdoso">Fralda geriátrica</li>
+    <li class="filtro" data-filtro="coronete">Hastes flexíveis</li>
+    <li class="filtro" data-filtro="protetorSolar">Protetor solar</li>
+    <li class="filtro" data-filtro="roupaIntima">Roupa íntima</li>
+</div>
+    </aside>
+
+<section class="produtos-grid">
+      <div class="card-produto" data-categoria="tudo aveia" data-preco="4,19">
+        <img src="../Imagens/Produtos/aveia jasmine.PNG" alt="">
+        <b class="nome-produto">Aveia Jasmine</b>
+        <b class="preco-produto">R$ 4,19</b>
+        <div class="info">
+        <span class="estoque">10</span>
+        </div>
+
+        <div class="quantidade">
+    <button class="menos">-</button>
+    <input type="text" class="valor" value="1" readonly>
+    <button class="mais">+</button>
+</div>
+      </div>
+</section>
+
+    <script>
+document.querySelectorAll(".card-produto").forEach(card => {
+    
+    const btnMenos = card.querySelector(".menos");
+    const btnMais = card.querySelector(".mais");
+    const campoValor = card.querySelector(".valor");
+    const precoBase = parseFloat(card.getAttribute("data-preco"));
+    const precoElemento = card.querySelector(".preco-produto");
+
+    function atualizarPreco() {
+        let quantidade = parseInt(campoValor.value);
+        let precoFinal = (precoBase * quantidade).toFixed(2);
+        precoElemento.textContent = `R$ ${precoFinal}`;
+    }
+
+    btnMais.addEventListener("click", () => {
+        campoValor.value = parseInt(campoValor.value) + 1;
+        atualizarPreco();
+    });
+
+    btnMenos.addEventListener("click", () => {
+        let valor = parseInt(campoValor.value);
+        if (valor > 1) {
+            campoValor.value = valor - 1;
+            atualizarPreco();
+        }
+    });
+});
+
+const itensMenu = document.querySelectorAll(".filtro");
+const cards = document.querySelectorAll(".card-produto");
+
+itensMenu.forEach(item => {
+    item.addEventListener("click", () => {
+
+        // remover seleção anterior
+        itensMenu.forEach(i => i.classList.remove("ativo"));
+
+        // marcar item clicado
+        item.classList.add("ativo");
+
+        // filtro escolhido
+        const filtro = item.getAttribute("data-filtro");
+
+        // mostrar/esconder produtos
+        cards.forEach(card => {
+            const categorias = card.getAttribute("data-categoria");
+            if (categorias.split(" ").includes(filtro)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+    });
+});
+</script>
+
+</body>
+</html>
+</body>
+</html>
