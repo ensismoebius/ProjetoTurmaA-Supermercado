@@ -1,0 +1,101 @@
+!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRME PAGAMENTO</title>
+    <link rel="stylesheet" href="/confirmpag.css">
+</head>
+
+<body>
+
+<header class="TopoInfo">
+    <div class="LogoPag">
+        <a href="#" class="Logosid">
+            <span class="logo"><img src="/public/img/Logo.svg"></span>
+        </a>
+    </div>
+
+    <div class="pesquisar">
+        <input type="text" class="txtPesquisar">
+        <span class="lupa"><img src="/public/img/lupa.png"></span>
+    </div>
+
+    <nav class="menu">
+        <a href="#" class="BtnMenu P">Perfil <span class="icon"><img src="/public/img/Usuario.png"></span></a>
+        <a href="#" class="BtnMenu F">Favoritos <span class="icon"><img src="/public/img/Favoritos.png"></span></a>
+        <a href="#" class="BtnMenu E">Entrega <span class="icon"><img src="/public/img/Entrega.png"></span></a>
+        <a href="#" class="BtnMenu C">Carrinho <span class="icon"><img src="/public/img/Carrinho.png"></span></a>
+    </nav>
+</header>
+
+<div class="successo">
+    <span class="icon">✔</span>
+</div>
+
+<div class="Container">
+
+    <div class="titulo">
+        <p>PEDIDO CONFIRMADO</p>
+    </div>
+
+    <div class="escrita">
+        <p>Obrigado, {{Usuario}}. Seu pagamento foi aprovado e o pedido já está sendo preparado</p>
+    </div>
+
+    <div class="info-grid">
+        <div class="info">
+            <span class="label">Data do pedido</span>
+            <span class="value">{{datapedi}}</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Data de envio</span>
+            <span class="value">{{dataenv}}</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Status de pagamento</span>
+            <span class="value">Aprovado</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Código de pagamento</span>
+            <span class="value">{{codpag}}</span>
+        </div>
+    </div>
+
+    <div class="subtitulo">
+        Você pode acompanhar o seu pedido clicando em “meus pedidos”
+        ou voltar para a página principal clicando em “voltar”
+    </div>
+
+   <button class="botao1">Meu pedido</button>
+   <button  class="botao2">Voltar</button>
+    
+
+</div>
+
+  <!--Rodapé-->
+    <footer class="Rodape">
+
+        <div class="LogonoRodape">
+            <div class="rodape-Logo">
+                <img src="/public/img/Logo.svg" />
+            </div>
+
+            <!-- centro: texto legal / informações -->
+            <div class="rodapeTexto">
+                <p class="rodapetitulo">© Sid's-Mart 2025 &nbsp; Mercado - Etec Jaraguá</p>
+                <p class="rodapeInfo"> • Endereço: R. Jairo de Almeida Machado, 401 - Jaraguá, São Paulo - SP, 02998-060
+                </p>
+                <p class="rodapeInfo"> •Instagram: @developers._</p>
+                <p class="rodapeInfo"> • O melhor curso da Etec Jaraguá | Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
