@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paginas.css">
+    <title>Padaria</title>
+</head>
+<body>
+    <header class="topo">
+        <div class="logo">
+    <img src="../Imagens/Icones/sidsMarket.png" alt="Logo do mercado">
+    </div>
+
+    <div class="barraPesquisa">
+        <form action="barraPesquisa.php">
+            <input type="text" placeholder="Pesquise por produtos ou marcas" name="pesquisa">
+        </form>
+        </div>
+
+
+    <div class="carrinho">
+        <img src="../Imagens/Icones/iconeCarrinho.png" alt="Carrinho de compra">
+    </div>
+</header>
+<div class="navegacao">
+  <a class="botao-cadastrar" href="cadastrar.html"><b>Cadastre-se</b></a>
+  <a class="#oferta" href="paginaOfertas.html"><b>Ofertas</b></a>
+  <a class="limpeza" href="paginaLimpeza.html"><b>Limpeza</b></a>
+  <a class="acougue" href="paginaFrios.html"><b>Frios</b></a>
+  <a class="acougue" href="paginaAcougue.html"><b>Açougue</b></a>
+  <a class="bebidas" href="paginaBebidas.html"><b>Bebidas</b></a>
+  <a class="botao-higiene" href="paginaHigiene.html"><b>Higiene e perfumaria</b></a>
+  <a class="padaria-matinais" href="paginaPadaria.html"><b>Padaria</b></a>
+  <a class="congelados" href="paginaCongelados.html"><b>Congelados</b></a>
+  <a class="hortifrut" href="paginaHortifrut.html"><b>Hortifrut</b></a>
+  <a class="descartaveis-embalagens" href="paginaDestacartaveis.html"><b>Embalagens</b></a>
+</div>
+
+    <div class="carrossel-container">
+    
+    <div class="banner-carrossel">
+    
+    <img class="imgCarrossel" src="../Imagens/Carrossel/mel.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/leite.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/torrada.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/geleia.png">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/cereais.png">
+
+    <div class="textos-banner">
+        <h1>Padaria</h1>
+        <p>Produtos totais: 34</p>
+    </div>
+
+</div>
+
+   <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("imgCarrossel");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div class="secao-produtos">
+  <div class="conteudo">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <h3>Padaria</h3>
+
+      <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="tudo">Aveias e cereais</h4>
+  <ul>
+    <li class="filtro" data-filtro="aveia">Aveia</li>
+    <li class="filtro" data-filtro="cereal">Cereal matinal</li>
+    <li class="filtro" data-filtro="granola">Granola</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="leites">Leites</h4>
+  <ul>
+    <li class="filtro" data-filtro="lactose">Leite 0% lactose</li>
+    <li class="filtro" data-filtro="dasnatado">Leite desnatado</li>
+    <li class="filtro" data-filtro="po">Leite em pó</li>
+    <li class="filtro" data-filtro="integral">Leite integral</li>
+    <li class="filtro" data-filtro="semi">Leite semidesnatado</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="geleias">Geleias</h4>
+  <ul>
+    <li class="filtro" data-filtro="morango">Geleia de morango</li>
+    <li class="filtro" data-filtro="frutas">Frutas vermelhas</li>
+    <li class="filtro" data-filtro="pimenta">Geleia de pimenta</li>
+    <li class="filtro" data-filtro="damasco">Geleia de damasco</li>
+    <li class="filtro" data-filtro="pessego">Geleia de pessêgo</li>
+    <li class="filtro" data-filtro="maca">Geleia de maçã</li>
+  </ul>
+</div>
+
+    <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="pate">Patês</h4>
+  <ul>
+    <li class="filtro" data-filtro="pate atum">Patê de atum</li>
+    <li class="filtro" data-filtro="pate peru">Patê de peito de peru</li>
+    <li class="filtro" data-filtro="pate presunto">Patê de presuto</li>
+    <li class="filtro" data-filtro="pate frango">Patê de frango</li>
+    <li class="filtro" data-filtro="pate azeitona">Patê de azeitona</li>
+    <li class="filtro" data-filtro="pate ervas">Patê de ervas finas</li>
+  </ul>
+</div>
+
+     <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="mel">Mel</h4>
+  <ul>
+    <li class="filtro" data-filtro="mel puro">Mel puro</li>
+    <li class="filtro" data-filtro="mel laranjeira">Mel de laranjeira</li>
+  </ul>
+</div>
+
+<div class="menu-grupo">
+  <h4 class="filtro" data-filtro="tudoP">Pães e torradas</h4>
+  <ul>
+    <li class="filtro" data-filtro="bisnaguinha">Bisnaguinha</li>
+    <li class="filtro" data-filtro="colomba">Colomba pascal</li>
+    <li class="filtro" data-filtro="coco">Pão de coco</li>
+    <li class="filtro" data-filtro="forma">Pão de forma</li>
+    <li class="filtro" data-filtro="hamburguer">Pão de hambúrger</li>
+    <li class="filtro" data-filtro="dog">Pão de hot dog</li>
+    <li class="filtro" data-filtro="milho">Pão de milho</li>
+    <li class="filtro" data-filtro="especial">Pão especial</li>
+    <li class="filtro" data-filtro="pIntegral">Pão integral</li>
+    <li class="filtro" data-filtro="gluten">Pão sem glúten</li>
+    <li class="filtro" data-filtro="sovado">Pão sovado</li>
+    <li class="filtro" data-filtro="torrada">Torrada</li>
+  </ul>
+</div>
+    </aside>
+    
+    <section class="produtos-grid">
+      <div class="card-produto" data-categoria="tudo aveia" data-preco="4,19">
+        <img src="../Imagens/Produtos/aveia jasmine.PNG" alt="">
+        <b class="nome-produto">Aveia Jasmine</b>
+        <b class="preco-produto">R$ 4,19</b>
+        <div class="info">
+        <span class="estoque">10</span>
+        </div>
+
+        <div class="quantidade">
+    <button class="menos">-</button>
+    <input type="text" class="valor" value="1" readonly>
+    <button class="mais">+</button>
+</div>
+      </div>
+    </section>
+
+     <script>
+document.querySelectorAll(".card-produto").forEach(card => {
+    
+    const btnMenos = card.querySelector(".menos");
+    const btnMais = card.querySelector(".mais");
+    const campoValor = card.querySelector(".valor");
+    const precoBase = parseFloat(card.getAttribute("data-preco"));
+    const precoElemento = card.querySelector(".preco-produto");
+
+    function atualizarPreco() {
+        let quantidade = parseInt(campoValor.value);
+        let precoFinal = (precoBase * quantidade).toFixed(2);
+        precoElemento.textContent = `R$ ${precoFinal}`;
+    }
+
+    btnMais.addEventListener("click", () => {
+        campoValor.value = parseInt(campoValor.value) + 1;
+        atualizarPreco();
+    });
+
+    btnMenos.addEventListener("click", () => {
+        let valor = parseInt(campoValor.value);
+        if (valor > 1) {
+            campoValor.value = valor - 1;
+            atualizarPreco();
+        }
+    });
+});
+
+const itensMenu = document.querySelectorAll(".filtro");
+const cards = document.querySelectorAll(".card-produto");
+
+itensMenu.forEach(item => {
+    item.addEventListener("click", () => {
+
+        // remover seleção anterior
+        itensMenu.forEach(i => i.classList.remove("ativo"));
+
+        // marcar item clicado
+        item.classList.add("ativo");
+
+        // filtro escolhido
+        const filtro = item.getAttribute("data-filtro");
+
+        // mostrar/esconder produtos
+        cards.forEach(card => {
+            const categorias = card.getAttribute("data-categoria");
+            if (categorias.split(" ").includes(filtro)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+    });
+});
+</script>
+
+</body>
+</html>
