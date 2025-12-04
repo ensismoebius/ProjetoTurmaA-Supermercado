@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paginas.css">
+    <title>Bebidas</title>
+</head>
+
+<body>
+    <header class="topo">
+        <div class="logo">
+    <img src="../Imagens/Icones/sidsMarket.png" alt="Logo do mercado">
+    </div>
+
+    <div class="barraPesquisa">
+        <form action="barraPesquisa.php">
+            <input type="text" placeholder="Pesquise por produtos ou marcas" name="pesquisa">
+        </form>
+        </div>
+
+
+    <div class="carrinho">
+        <img src="../Imagens/Icones/iconeCarrinho.png" alt="Carrinho de compra">
+    </div>
+</header>
+<div class="navegacao">
+    <a class="botao-cadastrar" href="cadastrar.html"><b>Cadastre-se</b></a>
+    <a class="#oferta" href="paginaOfertas.html"><b>Ofertas</b></a>
+    <a class="limpeza" href="paginaLimpeza.html"><b>Limpeza</b></a>
+    <a class="acougue" href="paginaFrios.html"><b>Frios</b></a>
+    <a class="acougue" href="paginaAcougue.html"><b>Açougue</b></a>
+    <a class="bebidas" href="paginaBebidas.html"><b>Bebidas</b></a>
+    <a class="botao-higiene" href="paginaHigiene.html"><b>Higiene e perfumaria</b></a>
+    <a class="padaria-matinais" href="paginaPadaria.html"><b>Padaria</b></a>
+    <a class="congelados" href="paginaCongelados.html"><b>Congelados</b></a>
+    <a class="hortifrut" href="paginaHortifrut.html"><b>Hortifrut</b></a>
+    <a class="descartaveis-embalagens" href="paginaDestacartaveis.html"><b>Embalagens</b></a>
+  </div>
+
+    <div class="carrossel-container">
+    
+    <div class="banner-carrossel">
+    
+    <img class="imgCarrossel" src="../Imagens/Carrossel/bebidas 1.jpg">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/bebidas.png">
+    <img class="imgCarrossel" src="../Imagens/Carrossel/refrigerante.jpg">
+
+    <div class="textos-banner">
+        <h1>Bebidas</h1>
+        <p>Produtos totais: 34</p>
+    </div>
+
+</div>
+
+   <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("imgCarrossel");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); 
+}
+</script>
+
+<div class="secao-produtos">
+  <div class="conteudo">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <h3>Adega</h3>
+
+      <div class="menu-grupo">
+  <h4 class="filtro" data-filtro="chas">Chás prontos</h4>
+  <ul>
+    <li class="filtro" data-filtro="branco">Chá branco</li>
+    <li class="filtro" data-filtro="limão">Chá capim limão</li>
+    <li class="filtro" data-filtro="hibisco">Chá de hibisco</li>
+    <li class="filtro" data-filtro="mate">Chá mate</li>
+    <li class="filtro" data-filtro="preto">Chá preto</li>
+     <li class="filtro" data-filtro="verde">Chá verde</li>
+  </ul>
+</div>
+</section>
+</aside>
+    <!-- GRID DE PRODUTOS -->
+    <section class="produtos-grid">
+      <div class="card-produto" data-categoria="" data-preco="20,90">
+        <img src="../Imagens/Produtos/aveia jasmine.PNG" alt="">
+        <b class="nome-produto">Queijo Tirolez</b>
+        <b class="preco-produto">R$ 20,90</b>
+        <div class="info">
+        <span class="estoque">10</span>
+        </div>
+
+        <div class="quantidade">
+    <button class="menos">-</button>
+    <input type="text" class="valor" value="1" readonly>
+    <button class="mais">+</button>
+</div>
+      </div>
+   
+      <script>
+document.querySelectorAll(".card-produto").forEach(card => {
+    
+    const btnMenos = card.querySelector(".menos");
+    const btnMais = card.querySelector(".mais");
+    const campoValor = card.querySelector(".valor");
+    const precoBase = parseFloat(card.getAttribute("data-preco"));
+    const precoElemento = card.querySelector(".preco-produto");
+
+    function atualizarPreco() {
+        let quantidade = parseInt(campoValor.value);
+        let precoFinal = (precoBase * quantidade).toFixed(2);
+        precoElemento.textContent = `R$ ${precoFinal}`;
+    }
+
+    btnMais.addEventListener("click", () => {
+        campoValor.value = parseInt(campoValor.value) + 1;
+        atualizarPreco();
+    });
+
+    btnMenos.addEventListener("click", () => {
+        let valor = parseInt(campoValor.value);
+        if (valor > 1) {
+            campoValor.value = valor - 1;
+            atualizarPreco();
+        }
+    });
+});
+
+const itensMenu = document.querySelectorAll(".filtro");
+const cards = document.querySelectorAll(".card-produto");
+
+itensMenu.forEach(item => {
+    item.addEventListener("click", () => {
+
+        // remover seleção anterior
+        itensMenu.forEach(i => i.classList.remove("ativo"));
+
+        // marcar item clicado
+        item.classList.add("ativo");
+
+        // filtro escolhido
+        const filtro = item.getAttribute("data-filtro");
+
+        // mostrar/esconder produtos
+        cards.forEach(card => {
+            const categorias = card.getAttribute("data-categoria");
+            if (categorias.split(" ").includes(filtro)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+    });
+});
+</script>
+     
+    </section>
+
+  </div>
+</div> 
+
+</body>
+</html>
