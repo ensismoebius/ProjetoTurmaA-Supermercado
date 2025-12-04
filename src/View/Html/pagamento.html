@@ -1,0 +1,58 @@
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="/pagamento.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+       
+
+        <header class="brand-header" role="banner">
+            <div class="brand" aria-label="Sid'sMart">
+                <span class="brand-green">Sid'</span><span class="brand-apos">s</span><span
+                    class="brand-red">Mart</span>
+            </div>
+        </header>
+        <div class="container">
+
+            <main class="card">
+                <h2>Pagamento</h2>
+                 
+      <label class="option">
+    <input type="radio" name="pagamento" value="pix">
+    <span class="circle"></span>
+    PIX
+</label>
+
+<label class="option">
+    <input type="radio" name="pagamento" value="cartao">
+    <span class="circle"></span>
+    Cartão de crédito
+</label>
+
+                <form class="register-form" action="" method="post">
+
+                    <div class="grid-2col1">
+                        <input type="text" name="" placeholder="Número do Cartão..." required>
+                        <input type="text" name="" placeholder="Nome no Cartão..." required>
+                    </div>
+                        <div class="grid-2col2">
+                        <input type="text" name="" placeholder="Validade" required>
+                        <input type="text" name="" placeholder="CVV" required></div>
+                        
+                        <div class="form-actions">
+                            <button class="btn-register" type="submit">Confirmar pagamento</button>
+                        </div>
+                </form>
+        </div>
+
+    </div>
+    
+</body>
